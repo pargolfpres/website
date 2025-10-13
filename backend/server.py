@@ -183,6 +183,8 @@ def verify_jwt_token(token: str) -> dict:
         raise HTTPException(status_code=401, detail="Invalid token")
 
 async def get_current_user(credentials: HTTPAuthorizationCredentials = Depends(security)) -> dict:
+    if db is None:
+        raise HTTPException(status_code=503, detail="Database unavailable")
     token = credentials.credentials
     payload = verify_jwt_token(token)
     user = await db.users.find_one({"id": payload['user_id']}, {"_id": 0})
