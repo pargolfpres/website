@@ -188,7 +188,10 @@ const PricingPage = () => {
                 >
                   {tier.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                      <span className={`${colorClasses.badge} text-sm font-bold px-6 py-2 rounded-full shadow-lg`}>
+                      <span 
+                        className={`${colorClasses.badge} text-sm font-bold px-6 py-2 rounded-full shadow-lg`}
+                        style={colorClasses.badgeBg ? { backgroundColor: colorClasses.badgeBg } : {}}
+                      >
                         Most Popular
                       </span>
                     </div>
