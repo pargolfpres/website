@@ -650,3 +650,6 @@ async def startup_seed_data():
         ]
         await db.news_articles.insert_many(sample_articles)
         logger.info("Seeded sample news articles")
+    except Exception as e:
+        logger.error(f"Error during database seeding: {str(e)}")
+        logger.warning("Continuing without seeding - database may already be populated or will be migrated")
