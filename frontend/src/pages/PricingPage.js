@@ -222,6 +222,7 @@ const PricingPage = () => {
                     <Link to={tier.name === 'Free' ? '/signup' : '/signup'}>
                       <Button
                         className={`w-full rounded-full ${colorClasses.button}`}
+                        style={colorClasses.buttonBg ? { backgroundColor: colorClasses.buttonBg } : {}}
                         size="lg"
                         data-testid={`cta-${tier.name.toLowerCase()}`}
                       >
