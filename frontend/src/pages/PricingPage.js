@@ -89,9 +89,9 @@ const PricingPage = () => {
   const getColorClasses = (color, popular) => {
     if (popular) {
       return {
-        border: 'border-4 border-blue-800',
-        button: 'bg-blue-800 hover:bg-blue-900 text-white',
-        badge: 'bg-blue-800 text-white'
+        border: 'border-4 border-tkr-gold',
+        button: 'bg-tkr-burgundy hover:opacity-90 text-white',
+        badge: 'bg-tkr-burgundy text-white'
       };
     }
     const colors = {
@@ -108,12 +108,12 @@ const PricingPage = () => {
       blue: {
         border: 'border-2 border-blue-200',
         button: 'bg-blue-600 hover:bg-blue-700 text-white',
-        badge: 'bg-blue-100 text-blue-800'
+        badge: 'bg-blue-100 tkr-burgundy'
       },
       amber: {
         border: 'border-2 border-amber-200',
-        button: 'bg-amber-600 hover:bg-amber-700 text-white',
-        badge: 'bg-amber-100 text-amber-800'
+        button: 'bg-gold-600 hover:bg-gold-700 text-white',
+        badge: 'bg-gold-100 text-amber-800'
       }
     };
     return colors[color];
@@ -130,7 +130,7 @@ const PricingPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-800 to-blue-900 text-white py-20" data-testid="pricing-header">
+      <section className="bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white py-20" data-testid="pricing-header">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Choose Your Success Plan</h1>

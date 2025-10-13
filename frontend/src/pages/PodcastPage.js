@@ -39,7 +39,7 @@ const PodcastPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-800 to-blue-900 text-white py-20" data-testid="podcast-header">
+      <section className="bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white py-20" data-testid="podcast-header">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center mx-auto mb-6">
@@ -85,7 +85,7 @@ const PodcastPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
           {loading ? (
             <div className="text-center py-20">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-800 border-t-transparent"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-tkr-gold border-t-transparent"></div>
               <p className="mt-4 text-gray-600">Loading episodes...</p>
             </div>
           ) : filteredEpisodes.length === 0 ? (
@@ -112,7 +112,7 @@ const PodcastPage = () => {
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                           <Button
                             size="lg"
-                            className="rounded-full bg-white text-blue-800 hover:bg-blue-50"
+                            className="rounded-full bg-white tkr-burgundy hover:bg-blue-50"
                             data-testid={`play-episode-${index}`}
                           >
                             <Play size={24} />
@@ -123,7 +123,7 @@ const PodcastPage = () => {
                       <div className="p-6 space-y-4">
                         <div className="space-y-2">
                           <div className="flex items-center justify-between">
-                            <span className="text-sm text-blue-800 font-semibold">
+                            <span className="text-sm tkr-burgundy font-semibold">
                               Season {episode.season} • Episode {episode.episode}
                             </span>
                             <div className="flex items-center text-sm text-gray-500">
@@ -159,7 +159,7 @@ const PodcastPage = () => {
       {/* CTA Section */}
       <section className="py-16 bg-blue-50" data-testid="podcast-cta">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <TrendingUp size={48} className="mx-auto text-blue-800 mb-4" />
+          <TrendingUp size={48} className="mx-auto tkr-burgundy mb-4" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Want More Than Just Podcasts?
           </h2>
@@ -167,13 +167,13 @@ const PodcastPage = () => {
             Get access to expert-led courses, daily tips, live coaching, and a thriving community
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-blue-800 hover:bg-blue-900 text-white px-8 rounded-full">
+            <Button size="lg" className="bg-tkr-burgundy hover:opacity-90 text-white px-8 rounded-full">
               Explore Courses
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 px-8 rounded-full"
+              className="border-2 border-tkr-gold tkr-burgundy hover:bg-blue-50 px-8 rounded-full"
             >
               View Pricing
             </Button>

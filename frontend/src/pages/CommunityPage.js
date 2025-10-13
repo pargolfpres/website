@@ -26,7 +26,7 @@ const CommunityPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-800 to-blue-900 text-white py-20" data-testid="community-header">
+      <section className="bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white py-20" data-testid="community-header">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center mx-auto mb-6">
@@ -36,7 +36,7 @@ const CommunityPage = () => {
             <p className="text-xl text-blue-100 mb-6">
               Connect, learn, and grow with thousands of real estate professionals
             </p>
-            <div className="inline-block bg-amber-500 text-white px-6 py-2 rounded-full font-semibold">
+            <div className="inline-block bg-gold-500 text-white px-6 py-2 rounded-full font-semibold">
               🔒 Join our membership to participate
             </div>
           </div>
@@ -73,7 +73,7 @@ const CommunityPage = () => {
 
           {loading ? (
             <div className="text-center py-20">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-800 border-t-transparent"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-tkr-gold border-t-transparent"></div>
               <p className="mt-4 text-gray-600">Loading discussions...</p>
             </div>
           ) : posts.length === 0 ? (
@@ -95,7 +95,7 @@ const CommunityPage = () => {
                       <div className="text-center">
                         <p className="text-gray-900 font-semibold mb-2">🔒 Join to see full discussion</p>
                         <Link to="/pricing">
-                          <Button size="sm" className="bg-blue-800 hover:bg-blue-900">
+                          <Button size="sm" className="bg-tkr-burgundy hover:opacity-90">
                             View Membership Plans
                           </Button>
                         </Link>
@@ -151,7 +151,7 @@ const CommunityPage = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-blue-50 to-amber-50" data-testid="community-cta">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <TrendingUp size={48} className="mx-auto text-blue-800 mb-4" />
+          <TrendingUp size={48} className="mx-auto tkr-burgundy mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Ready to Join the Conversation?
           </h2>
@@ -161,7 +161,7 @@ const CommunityPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/pricing">
-              <Button size="lg" className="bg-blue-800 hover:bg-blue-900 text-white px-8 rounded-full">
+              <Button size="lg" className="bg-tkr-burgundy hover:opacity-90 text-white px-8 rounded-full">
                 View Membership Plans
               </Button>
             </Link>
@@ -169,7 +169,7 @@ const CommunityPage = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 px-8 rounded-full"
+                className="border-2 border-tkr-gold tkr-burgundy hover:bg-blue-50 px-8 rounded-full"
               >
                 Create Free Account
               </Button>

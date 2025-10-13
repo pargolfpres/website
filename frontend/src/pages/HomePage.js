@@ -116,7 +116,7 @@ const HomePage = () => {
                 />
               </div>
               <div className="absolute -top-10 -right-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
-              <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-amber-200 rounded-full blur-3xl opacity-30"></div>
+              <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-gold-200 rounded-full blur-3xl opacity-30"></div>
             </div>
           </div>
         </div>
@@ -159,14 +159,14 @@ const HomePage = () => {
                 <CardContent className="p-6 space-y-4">
                   <div className="flex mb-2">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} className="fill-amber-500 text-amber-500" />
+                      <Star key={i} size={16} className="fill-current tkr-gold" />
                     ))}
                   </div>
                   <p className="text-gray-700 italic">"{testimonial.quote}"</p>
                   <div className="pt-4 border-t">
                     <p className="font-semibold text-gray-900">{testimonial.name}</p>
                     <p className="text-sm text-gray-600">{testimonial.role}</p>
-                    <div className="mt-2 inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                    <div className="mt-2 inline-block bg-blue-100 tkr-burgundy text-sm font-medium px-3 py-1 rounded-full">
                       {testimonial.metric}
                     </div>
                   </div>
@@ -231,7 +231,7 @@ const HomePage = () => {
 
             <div className="text-center">
               <Link to="/signup">
-                <Button size="lg" className="bg-blue-800 hover:bg-blue-900 text-white px-8 rounded-full">
+                <Button size="lg" className="bg-tkr-burgundy hover:opacity-90 text-white px-8 rounded-full">
                   Start Your Transformation Today
                 </Button>
               </Link>
@@ -255,37 +255,37 @@ const HomePage = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: <BookOpen size={32} className="text-blue-800" />,
+                icon: <BookOpen size={32} className="tkr-burgundy" />,
                 title: 'Expert-Led Video Courses',
                 description: 'Full course library with progress tracking, certificates, and lifetime access'
               },
               {
-                icon: <TrendingUp size={32} className="text-blue-800" />,
+                icon: <TrendingUp size={32} className="tkr-burgundy" />,
                 title: 'Daily/Weekly Tips',
                 description: 'Bite-sized actionable insights delivered right to your phone every day'
               },
               {
-                icon: <Play size={32} className="text-blue-800" />,
+                icon: <Play size={32} className="tkr-burgundy" />,
                 title: 'Live Coaching Sessions',
                 description: 'Zoom-integrated live events with recordings and Q&A with top coaches'
               },
               {
-                icon: <Users size={32} className="text-blue-800" />,
+                icon: <Users size={32} className="tkr-burgundy" />,
                 title: 'Thriving Community',
                 description: 'Real-time discussions, networking, and support from fellow agents'
               },
               {
-                icon: <Podcast size={32} className="text-blue-800" />,
+                icon: <Podcast size={32} className="tkr-burgundy" />,
                 title: 'Podcast Streaming',
                 description: 'Full podcast player with offline downloads and speed control'
               },
               {
-                icon: <Award size={32} className="text-blue-800" />,
+                icon: <Award size={32} className="tkr-burgundy" />,
                 title: 'Resources Library',
                 description: 'eBooks, workbooks, templates, and scripts ready to use'
               }
             ].map((feature, index) => (
-              <Card key={index} className="border-2 hover:border-blue-800 hover:shadow-xl transition-all duration-300 group" data-testid={`feature-card-${index}`}>
+              <Card key={index} className="border-2 hover:border-tkr-gold hover:shadow-xl transition-all duration-300 group" data-testid={`feature-card-${index}`}>
                 <CardContent className="p-6 space-y-4">
                   <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     {feature.icon}
@@ -336,7 +336,7 @@ const HomePage = () => {
 
             <div className="text-center mt-12">
               <Link to="/podcast">
-                <Button size="lg" variant="outline" className="bg-white text-blue-800 hover:bg-blue-50 border-0 px-8 rounded-full">
+                <Button size="lg" variant="outline" className="bg-white tkr-burgundy hover:bg-blue-50 border-0 px-8 rounded-full">
                   View All Episodes
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
@@ -368,13 +368,13 @@ const HomePage = () => {
               <Card
                 key={tier.name}
                 className={`relative ${
-                  tier.popular ? 'border-4 border-blue-800 shadow-xl scale-105' : 'border-2'
+                  tier.popular ? 'border-4 border-tkr-gold shadow-xl scale-105' : 'border-2'
                 }`}
                 data-testid={`pricing-card-${tier.name.toLowerCase()}`}
               >
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-blue-800 text-white text-sm font-bold px-4 py-1 rounded-full">
+                    <span className="bg-tkr-burgundy text-white text-sm font-bold px-4 py-1 rounded-full">
                       Most Popular
                     </span>
                   </div>
@@ -389,7 +389,7 @@ const HomePage = () => {
                     <Button
                       className={`w-full rounded-full ${
                         tier.popular
-                          ? 'bg-blue-800 hover:bg-blue-900 text-white'
+                          ? 'bg-tkr-burgundy hover:opacity-90 text-white'
                           : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
                       }`}
                     >
@@ -403,7 +403,7 @@ const HomePage = () => {
 
           <div className="text-center mt-12">
             <Link to="/pricing">
-              <Button variant="link" className="text-blue-800">
+              <Button variant="link" className="tkr-burgundy">
                 Compare all plans and features →
               </Button>
             </Link>
@@ -456,7 +456,7 @@ const HomePage = () => {
               }
             ].map((faq, index) => (
               <AccordionItem key={index} value={`item-${index}`} data-testid={`faq-item-${index}`}>
-                <AccordionTrigger className="text-left text-lg font-semibold text-gray-900 hover:text-blue-800">
+                <AccordionTrigger className="text-left text-lg font-semibold text-gray-900 hover:tkr-burgundy">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-gray-600">
@@ -469,7 +469,7 @@ const HomePage = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-br from-blue-800 to-blue-900 text-white" data-testid="final-cta-section">
+      <section className="py-20 bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white" data-testid="final-cta-section">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Ready to Transform Your Real Estate Business?
@@ -482,7 +482,7 @@ const HomePage = () => {
             <Link to="/signup">
               <Button
                 size="lg"
-                className="bg-white text-blue-800 hover:bg-blue-50 px-8 py-6 text-lg rounded-full shadow-xl"
+                className="bg-white tkr-burgundy hover:bg-blue-50 px-8 py-6 text-lg rounded-full shadow-xl"
                 data-testid="final-cta-signup"
               >
                 <Download className="mr-2" size={20} />

@@ -54,7 +54,7 @@ const DashboardPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-800 border-t-transparent"></div>
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-tkr-gold border-t-transparent"></div>
           <p className="mt-4 text-gray-600">Loading dashboard...</p>
         </div>
       </div>
@@ -65,8 +65,8 @@ const DashboardPage = () => {
     const colors = {
       free: 'bg-gray-100 text-gray-800',
       bronze: 'bg-orange-100 text-orange-800',
-      silver: 'bg-blue-100 text-blue-800',
-      gold: 'bg-amber-100 text-amber-800'
+      silver: 'bg-blue-100 tkr-burgundy',
+      gold: 'bg-gold-100 text-amber-800'
     };
     return colors[tier] || 'bg-gray-100 text-gray-800';
   };
@@ -83,7 +83,7 @@ const DashboardPage = () => {
         </div>
 
         {/* Membership Status */}
-        <Card className="mb-8 bg-gradient-to-br from-blue-800 to-blue-900 text-white">
+        <Card className="mb-8 bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white">
           <CardContent className="p-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
@@ -101,7 +101,7 @@ const DashboardPage = () => {
                 <Link to="/pricing">
                   <Button
                     size="lg"
-                    className="bg-white text-blue-800 hover:bg-blue-50 rounded-full"
+                    className="bg-white tkr-burgundy hover:bg-blue-50 rounded-full"
                     data-testid="upgrade-button"
                   >
                     <TrendingUp className="mr-2" size={20} />
@@ -117,28 +117,28 @@ const DashboardPage = () => {
         <div className="grid md:grid-cols-4 gap-6 mb-8">
           <Card>
             <CardContent className="p-6 text-center">
-              <BookOpen size={32} className="mx-auto text-blue-800 mb-2" />
+              <BookOpen size={32} className="mx-auto tkr-burgundy mb-2" />
               <p className="text-2xl font-bold text-gray-900">0</p>
               <p className="text-sm text-gray-600">Courses Enrolled</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-6 text-center">
-              <Award size={32} className="mx-auto text-blue-800 mb-2" />
+              <Award size={32} className="mx-auto tkr-burgundy mb-2" />
               <p className="text-2xl font-bold text-gray-900">0</p>
               <p className="text-sm text-gray-600">Certificates Earned</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-6 text-center">
-              <Play size={32} className="mx-auto text-blue-800 mb-2" />
+              <Play size={32} className="mx-auto tkr-burgundy mb-2" />
               <p className="text-2xl font-bold text-gray-900">{podcasts.length}</p>
               <p className="text-sm text-gray-600">Podcast Episodes</p>
             </CardContent>
           </Card>
           <Card>
             <CardContent className="p-6 text-center">
-              <Users size={32} className="mx-auto text-blue-800 mb-2" />
+              <Users size={32} className="mx-auto tkr-burgundy mb-2" />
               <p className="text-2xl font-bold text-gray-900">{communityPosts.length}</p>
               <p className="text-sm text-gray-600">Community Posts</p>
             </CardContent>
@@ -160,7 +160,7 @@ const DashboardPage = () => {
                 <BookOpen size={48} className="mx-auto text-gray-400 mb-4" />
                 <p className="text-gray-600 mb-4">You haven't enrolled in any courses yet</p>
                 <Link to="/courses">
-                  <Button className="bg-blue-800 hover:bg-blue-900">Browse Courses</Button>
+                  <Button className="bg-tkr-burgundy hover:opacity-90">Browse Courses</Button>
                 </Link>
               </CardContent>
             </Card>
@@ -215,7 +215,7 @@ const DashboardPage = () => {
                     className="w-full aspect-square object-cover rounded-lg"
                   />
                   <div className="space-y-2">
-                    <p className="text-xs text-blue-800 font-semibold">
+                    <p className="text-xs tkr-burgundy font-semibold">
                       S{episode.season} • E{episode.episode} • {episode.duration}
                     </p>
                     <h3 className="font-semibold text-gray-900 line-clamp-2">{episode.title}</h3>
@@ -245,7 +245,7 @@ const DashboardPage = () => {
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <span className="text-blue-800 font-semibold">
+                      <span className="tkr-burgundy font-semibold">
                         {post.user_name.charAt(0)}
                       </span>
                     </div>
@@ -273,7 +273,7 @@ const DashboardPage = () => {
         {/* Download Mobile App CTA */}
         <Card className="bg-gradient-to-br from-blue-50 to-amber-50 border-2 border-blue-200">
           <CardContent className="p-8 text-center">
-            <Download size={48} className="mx-auto text-blue-800 mb-4" />
+            <Download size={48} className="mx-auto tkr-burgundy mb-4" />
             <h2 className="text-2xl font-bold text-gray-900 mb-2">
               Get the Mobile App
             </h2>
@@ -282,10 +282,10 @@ const DashboardPage = () => {
               Download the TKR Coaching app for iOS or Android.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-blue-800 hover:bg-blue-900 rounded-full">
+              <Button size="lg" className="bg-tkr-burgundy hover:opacity-90 rounded-full">
                 📱 Download on iOS
               </Button>
-              <Button size="lg" variant="outline" className="border-2 border-blue-800 rounded-full">
+              <Button size="lg" variant="outline" className="border-2 border-tkr-gold rounded-full">
                 🤖 Get it on Android
               </Button>
             </div>

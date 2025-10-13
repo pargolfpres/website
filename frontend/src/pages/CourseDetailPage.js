@@ -65,7 +65,7 @@ const CourseDetailPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-800 border-t-transparent"></div>
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-tkr-gold border-t-transparent"></div>
           <p className="mt-4 text-gray-600">Loading course...</p>
         </div>
       </div>
@@ -89,8 +89,8 @@ const CourseDetailPage = () => {
     const colors = {
       free: 'bg-gray-100 text-gray-800',
       bronze: 'bg-orange-100 text-orange-800',
-      silver: 'bg-blue-100 text-blue-800',
-      gold: 'bg-amber-100 text-amber-800'
+      silver: 'bg-blue-100 tkr-burgundy',
+      gold: 'bg-gold-100 text-amber-800'
     };
     return colors[tier] || 'bg-gray-100 text-gray-800';
   };
@@ -98,7 +98,7 @@ const CourseDetailPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-800 to-blue-900 text-white py-12" data-testid="course-detail-header">
+      <section className="bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white py-12" data-testid="course-detail-header">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/courses" className="inline-flex items-center text-blue-200 hover:text-white mb-6">
             <ArrowLeft size={20} className="mr-2" />
@@ -159,7 +159,7 @@ const CourseDetailPage = () => {
                     <>
                       <Button
                         size="lg"
-                        className="w-full bg-blue-800 hover:bg-blue-900 text-white"
+                        className="w-full bg-tkr-burgundy hover:opacity-90 text-white"
                         onClick={handleEnroll}
                         data-testid="enroll-button-locked"
                       >
@@ -175,7 +175,7 @@ const CourseDetailPage = () => {
                       {!user && (
                         <p className="text-sm text-gray-600 text-center">
                           Already have an account?{' '}
-                          <Link to="/login" className="text-blue-800 font-semibold hover:underline">
+                          <Link to="/login" className="tkr-burgundy font-semibold hover:underline">
                             Log in
                           </Link>
                         </p>
@@ -213,7 +213,7 @@ const CourseDetailPage = () => {
                   <AccordionTrigger className="hover:no-underline">
                     <div className="flex items-center space-x-4 text-left">
                       <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                        <span className="text-blue-800 font-semibold text-sm">{index + 1}</span>
+                        <span className="tkr-burgundy font-semibold text-sm">{index + 1}</span>
                       </div>
                       <div className="flex-1">
                         <h3 className="font-semibold text-gray-900">{lesson.title}</h3>
@@ -245,7 +245,7 @@ const CourseDetailPage = () => {
             Explore more courses to master every aspect of real estate success
           </p>
           <Link to="/courses">
-            <Button size="lg" className="bg-blue-800 hover:bg-blue-900 text-white px-8 rounded-full">
+            <Button size="lg" className="bg-tkr-burgundy hover:opacity-90 text-white px-8 rounded-full">
               Browse All Courses
             </Button>
           </Link>

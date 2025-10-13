@@ -47,13 +47,13 @@ const ResourcesPage = () => {
 
   const getResourceIcon = (type) => {
     const icons = {
-      daily_tip: <FileText size={32} className="text-blue-800" />,
-      ebook: <BookOpen size={32} className="text-blue-800" />,
-      workbook: <FileText size={32} className="text-blue-800" />,
-      article: <FileText size={32} className="text-blue-800" />,
-      market_report: <FileText size={32} className="text-blue-800" />
+      daily_tip: <FileText size={32} className="tkr-burgundy" />,
+      ebook: <BookOpen size={32} className="tkr-burgundy" />,
+      workbook: <FileText size={32} className="tkr-burgundy" />,
+      article: <FileText size={32} className="tkr-burgundy" />,
+      market_report: <FileText size={32} className="tkr-burgundy" />
     };
-    return icons[type] || <FileText size={32} className="text-blue-800" />;
+    return icons[type] || <FileText size={32} className="tkr-burgundy" />;
   };
 
   const getResourceTypeLabel = (type) => {
@@ -70,7 +70,7 @@ const ResourcesPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-800 to-blue-900 text-white py-16" data-testid="resources-header">
+      <section className="bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white py-16" data-testid="resources-header">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Resources & Tools</h1>
@@ -120,7 +120,7 @@ const ResourcesPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {loading ? (
             <div className="text-center py-20">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-800 border-t-transparent"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-tkr-gold border-t-transparent"></div>
               <p className="mt-4 text-gray-600">Loading resources...</p>
             </div>
           ) : filteredResources.length === 0 ? (
@@ -145,7 +145,7 @@ const ResourcesPage = () => {
                         <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center">
                           {getResourceIcon(resource.resource_type)}
                         </div>
-                        <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-3 py-1 rounded-full">
+                        <span className="bg-blue-100 tkr-burgundy text-xs font-semibold px-3 py-1 rounded-full">
                           {getResourceTypeLabel(resource.resource_type)}
                         </span>
                       </div>
@@ -156,7 +156,7 @@ const ResourcesPage = () => {
                       </div>
 
                       {resource.tier_required !== 'free' && (
-                        <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+                        <div className="bg-gold-50 border border-amber-200 rounded-lg p-3">
                           <p className="text-sm text-amber-800 font-semibold">
                             🔒 {resource.tier_required.charAt(0).toUpperCase() + resource.tier_required.slice(1)} membership required
                           </p>
@@ -164,7 +164,7 @@ const ResourcesPage = () => {
                       )}
 
                       <Button
-                        className="w-full bg-blue-800 hover:bg-blue-900"
+                        className="w-full bg-tkr-burgundy hover:opacity-90"
                         data-testid={`download-${resource.id}`}
                       >
                         {resource.download_url ? (
@@ -188,14 +188,14 @@ const ResourcesPage = () => {
       {/* CTA Section */}
       <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <BookOpen size={48} className="mx-auto text-blue-800 mb-4" />
+          <BookOpen size={48} className="mx-auto tkr-burgundy mb-4" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Want Access to Premium Resources?
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
             Upgrade your membership to unlock exclusive eBooks, workbooks, templates, and advanced resources
           </p>
-          <Button size="lg" className="bg-blue-800 hover:bg-blue-900 text-white px-8 rounded-full">
+          <Button size="lg" className="bg-tkr-burgundy hover:opacity-90 text-white px-8 rounded-full">
             View Pricing Plans
           </Button>
         </div>

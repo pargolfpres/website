@@ -55,8 +55,8 @@ const CoursesPage = () => {
     const colors = {
       free: 'bg-gray-100 text-gray-800',
       bronze: 'bg-orange-100 text-orange-800',
-      silver: 'bg-blue-100 text-blue-800',
-      gold: 'bg-amber-100 text-amber-800'
+      silver: 'bg-blue-100 tkr-burgundy',
+      gold: 'bg-gold-100 text-amber-800'
     };
     return colors[tier] || 'bg-gray-100 text-gray-800';
   };
@@ -64,7 +64,7 @@ const CoursesPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <section className="bg-gradient-to-br from-blue-800 to-blue-900 text-white py-16" data-testid="courses-header">
+      <section className="bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white py-16" data-testid="courses-header">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Expert-Led Courses</h1>
@@ -126,7 +126,7 @@ const CoursesPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           {loading ? (
             <div className="text-center py-20">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-blue-800 border-t-transparent"></div>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-tkr-gold border-t-transparent"></div>
               <p className="mt-4 text-gray-600">Loading courses...</p>
             </div>
           ) : filteredCourses.length === 0 ? (
@@ -160,7 +160,7 @@ const CoursesPage = () => {
                     </div>
                     <CardContent className="p-6 space-y-4">
                       <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-800 transition-colors">
+                        <h3 className="text-xl font-bold text-gray-900 group-hover:tkr-burgundy transition-colors">
                           {course.title}
                         </h3>
                         <p className="text-gray-600 text-sm line-clamp-2">{course.description}</p>
@@ -182,7 +182,7 @@ const CoursesPage = () => {
                           <strong>Instructor:</strong> {course.instructor}
                         </p>
                         <Link to={`/courses/${course.id}`}>
-                          <Button className="w-full bg-blue-800 hover:bg-blue-900" data-testid={`view-course-${course.id}`}>
+                          <Button className="w-full bg-tkr-burgundy hover:opacity-90" data-testid={`view-course-${course.id}`}>
                             View Course
                           </Button>
                         </Link>
@@ -199,7 +199,7 @@ const CoursesPage = () => {
       {/* CTA Section */}
       <section className="py-16 bg-blue-50" data-testid="courses-cta">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Award size={48} className="mx-auto text-blue-800 mb-4" />
+          <Award size={48} className="mx-auto tkr-burgundy mb-4" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Want Access to ALL Courses?
           </h2>
@@ -207,7 +207,7 @@ const CoursesPage = () => {
             Upgrade to Silver or Gold membership to unlock the complete course library
           </p>
           <Link to="/pricing">
-            <Button size="lg" className="bg-blue-800 hover:bg-blue-900 text-white px-8 rounded-full">
+            <Button size="lg" className="bg-tkr-burgundy hover:opacity-90 text-white px-8 rounded-full">
               View Pricing Plans
             </Button>
           </Link>

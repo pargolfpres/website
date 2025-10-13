@@ -41,7 +41,7 @@ const SignupPage = () => {
         {/* Logo & Header */}
         <div className="text-center">
           <Link to="/" className="inline-block">
-            <div className="w-16 h-16 bg-gradient-to-br from-blue-800 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <div className="w-16 h-16 bg-gradient-to-br from-tkr-burgundy to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <span className="text-white font-bold text-2xl">TKR</span>
             </div>
           </Link>
@@ -116,11 +116,11 @@ const SignupPage = () => {
                 />
                 <label htmlFor="terms" className="text-sm text-gray-600">
                   I agree to the{' '}
-                  <a href="#" className="text-blue-800 hover:underline">
+                  <a href="#" className="tkr-burgundy hover:underline">
                     Terms of Service
                   </a>{' '}
                   and{' '}
-                  <a href="#" className="text-blue-800 hover:underline">
+                  <a href="#" className="tkr-burgundy hover:underline">
                     Privacy Policy
                   </a>
                 </label>
@@ -128,7 +128,7 @@ const SignupPage = () => {
 
               <Button
                 type="submit"
-                className="w-full bg-blue-800 hover:bg-blue-900 text-white py-6 rounded-full"
+                className="w-full bg-tkr-burgundy hover:opacity-90 text-white py-6 rounded-full"
                 disabled={loading}
                 data-testid="signup-submit-button"
               >
@@ -168,7 +168,7 @@ const SignupPage = () => {
         {/* Login Link */}
         <p className="text-center text-gray-600">
           Already have an account?{' '}
-          <Link to="/login" className="text-blue-800 font-semibold hover:underline">
+          <Link to="/login" className="tkr-burgundy font-semibold hover:underline">
             Sign in
           </Link>
         </p>
