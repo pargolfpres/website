@@ -557,13 +557,13 @@ async def startup_seed_data():
                 "difficulty": "advanced",
                 "created_at": datetime.now(timezone.utc).isoformat()
             }
-        ]
-        await db.courses.insert_many(sample_courses)
-        logger.info("Seeded sample courses")
-    
-    # Seed podcast episodes
-    if await db.podcast_episodes.count_documents({}) == 0:
-        sample_episodes = [
+            ]
+            await db.courses.insert_many(sample_courses)
+            logger.info("Seeded sample courses")
+        
+        # Seed podcast episodes
+        if await db.podcast_episodes.count_documents({}) == 0:
+            sample_episodes = [
             {
                 "id": str(uuid.uuid4()),
                 "title": "5 Scripts That Close Every Listing",
