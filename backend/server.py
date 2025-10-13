@@ -446,7 +446,23 @@ logger = logging.getLogger(__name__)
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    client.close()
+    if client:
+        client.close()
+
+@app.on_event("startup")
+async def startup_check_db():
+    """Check database connection on startup"""
+    if db is None:
+        logger.error("Database not initialized - some features may not work")
+        return
+    
+    try:
+        # Test database connection
+        await client.admin.command('ping')
+        logger.info("Database connection successful")
+    except Exception as e:
+        logger.error(f"Database connection failed: {str(e)}")
+        logger.warning("App starting without database connection - retry will happen on first request")
 
 @app.on_event("startup")
 async def startup_seed_data():
