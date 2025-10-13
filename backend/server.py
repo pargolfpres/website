@@ -423,8 +423,15 @@ async def shutdown_db_client():
 @app.on_event("startup")
 async def startup_seed_data():
     """Seed database with sample data if empty"""
-    # Seed courses
-    if await db.courses.count_documents({}) == 0:
+    # Skip seeding in production or if SKIP_SEEDING env var is set
+    skip_seeding = os.environ.get('SKIP_SEEDING', 'false').lower() == 'true'
+    if skip_seeding:
+        logger.info("Skipping data seeding (SKIP_SEEDING=true)")
+        return
+    
+    try:
+        # Seed courses
+        if await db.courses.count_documents({}) == 0:
         sample_courses = [
             {
                 "id": str(uuid.uuid4()),
