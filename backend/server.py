@@ -659,13 +659,13 @@ async def startup_seed_data():
                 "likes_count": 42,
                 "created_at": (datetime.now(timezone.utc) - timedelta(hours=5)).isoformat()
             }
-        ]
-        await db.community_posts.insert_many(sample_posts)
-        logger.info("Seeded sample community posts")
-    
-    # Seed news articles
-    if await db.news_articles.count_documents({}) == 0:
-        sample_articles = [
+            ]
+            await db.community_posts.insert_many(sample_posts)
+            logger.info("Seeded sample community posts")
+        
+        # Seed news articles
+        if await db.news_articles.count_documents({}) == 0:
+            sample_articles = [
             {
                 "id": str(uuid.uuid4()),
                 "title": "Mortgage Rates Drop to Lowest Level in 6 Months",
