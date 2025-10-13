@@ -183,6 +183,7 @@ const PricingPage = () => {
                 <Card
                   key={tier.name}
                   className={`relative ${colorClasses.border} ${tier.popular ? 'scale-105 shadow-2xl' : 'shadow-lg'} hover:shadow-xl transition-all`}
+                  style={colorClasses.borderColor ? { borderColor: colorClasses.borderColor } : {}}
                   data-testid={`pricing-card-${tier.name.toLowerCase()}`}
                 >
                   {tier.popular && (
