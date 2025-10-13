@@ -478,7 +478,7 @@ async def startup_seed_data():
     try:
         # Seed courses
         if await db.courses.count_documents({}) == 0:
-        sample_courses = [
+            sample_courses = [
             {
                 "id": str(uuid.uuid4()),
                 "title": "Mastering Listing Presentations",
