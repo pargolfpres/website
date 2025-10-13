@@ -13,29 +13,11 @@ const PricingPage = () => {
 
   const tiers = [
     {
-      name: 'Free',
-      price: { monthly: 0, yearly: 0 },
-      description: 'Perfect for getting started',
-      features: [
-        { text: 'Daily coaching tips', included: true },
-        { text: 'Browse course catalog (preview only)', included: true },
-        { text: 'Limited community access (read-only)', included: true },
-        { text: 'Full podcast access (ALL episodes free!)', included: true },
-        { text: 'Industry news feed', included: true },
-        { text: 'Access to courses', included: false },
-        { text: 'Downloadable resources', included: false },
-        { text: 'Live coaching sessions', included: false },
-      ],
-      cta: 'Start Free',
-      popular: false,
-      color: 'gray'
-    },
-    {
       name: 'Bronze',
       price: { monthly: 29, yearly: 290 },
       description: 'For agents ready to take action',
       features: [
-        { text: 'Everything in Free, plus:', included: true, bold: true },
+        { text: 'Daily coaching tips', included: true },
         { text: 'Access to Bronze-tier courses', included: true },
         { text: 'Full community participation', included: true },
         { text: 'Downloadable resources', included: true },
