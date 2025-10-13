@@ -387,12 +387,8 @@ const HomePage = () => {
                   </div>
                   <Link to="/pricing">
                     <Button
-                      className={`w-full rounded-full text-white`}
+                      className="w-full rounded-full text-white"
                       style={{ backgroundColor: tier.popular ? '#6f1d1b' : '#bb9457' }}
-                        tier.popular
-                          ? 'bg-tkr-burgundy hover:opacity-90 text-white'
-                          : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
-                      }`}
                     >
                       {tier.cta}
                     </Button>
