@@ -86,19 +86,19 @@ const HomePage = () => {
                 <div className="flex items-center space-x-2" data-testid="trust-badge-rating">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={16} className="fill-amber-500 text-amber-500" />
+                      <Star key={i} size={16} className="fill-current" style={{ color: '#bb9457' }} />
                     ))}
                   </div>
                   <span className="text-sm font-medium text-gray-700">4.9 App Rating</span>
                 </div>
                 <div className="flex items-center space-x-2" data-testid="trust-badge-members">
-                  <Users size={16} className="text-blue-800" />
+                  <Users size={16} style={{ color: '#6f1d1b' }} />
                   <span className="text-sm font-medium text-gray-700">
                     {stats ? `${stats.total_users.toLocaleString()}+ Active Members` : '10,000+ Active Members'}
                   </span>
                 </div>
                 <div className="flex items-center space-x-2" data-testid="trust-badge-courses">
-                  <Award size={16} className="text-blue-800" />
+                  <Award size={16} style={{ color: '#6f1d1b' }} />
                   <span className="text-sm font-medium text-gray-700">
                     {stats ? `${stats.total_courses}+ Courses` : '50+ Expert Courses'}
                   </span>
