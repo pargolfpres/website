@@ -301,7 +301,7 @@ const HomePage = () => {
 
       {/* Podcast Preview */}
       {podcasts.length > 0 && (
-        <section className="py-20 bg-gradient-to-br from-blue-900 to-tkr-dark-burgundy text-white" data-testid="podcast-preview-section">
+        <section className="py-20 text-white" style={{ background: 'linear-gradient(135deg, #6f1d1b 0%, #4a1312 100%)' }} data-testid="podcast-preview-section">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
