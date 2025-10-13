@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Layout = () => {
@@ -36,7 +36,7 @@ const Layout = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col" style={{ fontFamily: 'Montserrat, sans-serif' }}>
       {/* Navigation */}
       <nav
         data-testid="main-navigation"
@@ -47,11 +47,16 @@ const Layout = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2" data-testid="logo-link">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-800 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">TKR</span>
+            <Link to="/" className="flex items-center space-x-3" data-testid="logo-link">
+              <img
+                src="https://customer-assets.emergentagent.com/job_realestate-pro-35/artifacts/elh4rf6l_walllogoTR2.png"
+                alt="TKR Coaching"
+                className="h-12 w-auto"
+              />
+              <div className="flex flex-col">
+                <span className="text-xl font-bold" style={{ color: '#6f1d1b' }}>TKR Coaching</span>
+                <span className="text-xs" style={{ color: '#bb9457' }}>Todd K Roberson</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">TKR Coaching</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -59,35 +64,40 @@ const Layout = () => {
               <Link
                 to="/courses"
                 data-testid="nav-courses-link"
-                className="text-gray-700 hover:text-blue-800 font-medium transition-colors"
+                className="font-medium transition-colors hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
               >
                 Courses
               </Link>
               <Link
                 to="/podcast"
                 data-testid="nav-podcast-link"
-                className="text-gray-700 hover:text-blue-800 font-medium transition-colors"
+                className="font-medium transition-colors hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
               >
                 Podcast
               </Link>
               <Link
                 to="/resources"
                 data-testid="nav-resources-link"
-                className="text-gray-700 hover:text-blue-800 font-medium transition-colors"
+                className="font-medium transition-colors hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
               >
                 Resources
               </Link>
               <Link
                 to="/community"
                 data-testid="nav-community-link"
-                className="text-gray-700 hover:text-blue-800 font-medium transition-colors"
+                className="font-medium transition-colors hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
               >
                 Community
               </Link>
               <Link
                 to="/pricing"
                 data-testid="nav-pricing-link"
-                className="text-gray-700 hover:text-blue-800 font-medium transition-colors"
+                className="font-medium transition-colors hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
               >
                 Pricing
               </Link>
@@ -98,7 +108,7 @@ const Layout = () => {
               {user ? (
                 <>
                   <Link to="/dashboard">
-                    <Button variant="ghost" data-testid="nav-dashboard-button">
+                    <Button variant="ghost" data-testid="nav-dashboard-button" style={{ color: '#6f1d1b' }}>
                       Dashboard
                     </Button>
                   </Link>
@@ -106,6 +116,7 @@ const Layout = () => {
                     variant="outline"
                     onClick={handleLogout}
                     data-testid="nav-logout-button"
+                    style={{ borderColor: '#bb9457', color: '#6f1d1b' }}
                   >
                     Logout
                   </Button>
@@ -113,13 +124,14 @@ const Layout = () => {
               ) : (
                 <>
                   <Link to="/login">
-                    <Button variant="ghost" data-testid="nav-login-button">
+                    <Button variant="ghost" data-testid="nav-login-button" style={{ color: '#6f1d1b' }}>
                       Login
                     </Button>
                   </Link>
                   <Link to="/signup">
                     <Button
-                      className="bg-blue-800 hover:bg-blue-900 text-white"
+                      className="text-white hover:opacity-90 transition-opacity"
+                      style={{ backgroundColor: '#6f1d1b' }}
                       data-testid="nav-signup-button"
                     >
                       Get Started Free
@@ -134,6 +146,7 @@ const Layout = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2"
               data-testid="mobile-menu-button"
+              style={{ color: '#6f1d1b' }}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -144,35 +157,40 @@ const Layout = () => {
             <div className="md:hidden pt-4 pb-3 space-y-3" data-testid="mobile-menu">
               <Link
                 to="/courses"
-                className="block text-gray-700 hover:text-blue-800 py-2"
+                className="block py-2 hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Courses
               </Link>
               <Link
                 to="/podcast"
-                className="block text-gray-700 hover:text-blue-800 py-2"
+                className="block py-2 hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Podcast
               </Link>
               <Link
                 to="/resources"
-                className="block text-gray-700 hover:text-blue-800 py-2"
+                className="block py-2 hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Resources
               </Link>
               <Link
                 to="/community"
-                className="block text-gray-700 hover:text-blue-800 py-2"
+                className="block py-2 hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Community
               </Link>
               <Link
                 to="/pricing"
-                className="block text-gray-700 hover:text-blue-800 py-2"
+                className="block py-2 hover:opacity-80"
+                style={{ color: '#6f1d1b' }}
                 onClick={() => setIsMenuOpen(false)}
               >
                 Pricing
@@ -197,7 +215,7 @@ const Layout = () => {
                       </Button>
                     </Link>
                     <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
-                      <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white">
+                      <Button className="w-full text-white" style={{ backgroundColor: '#6f1d1b' }}>
                         Get Started Free
                       </Button>
                     </Link>
@@ -215,39 +233,41 @@ const Layout = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-300 py-12" data-testid="footer">
+      <footer className="text-white py-12" data-testid="footer" style={{ backgroundColor: '#4a1312' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-800 to-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold">TKR</span>
-                </div>
-                <span className="text-white font-bold">TKR Coaching</span>
+                <img
+                  src="https://customer-assets.emergentagent.com/job_realestate-pro-35/artifacts/elh4rf6l_walllogoTR2.png"
+                  alt="TKR Coaching"
+                  className="h-10 w-auto"
+                />
+                <span className="font-bold" style={{ color: '#ffe6a7' }}>TKR Coaching</span>
               </div>
-              <p className="text-sm">Transform Your Real Estate Career From Your Pocket</p>
+              <p className="text-sm" style={{ color: '#bb9457' }}>Transform Your Real Estate Career From Your Pocket</p>
             </div>
 
             <div>
-              <h3 className="text-white font-semibold mb-4">Platform</h3>
-              <ul className="space-y-2 text-sm">
+              <h3 className="font-semibold mb-4" style={{ color: '#ffe6a7' }}>Platform</h3>
+              <ul className="space-y-2 text-sm" style={{ color: '#bb9457' }}>
                 <li>
-                  <Link to="/courses" className="hover:text-white transition-colors">
+                  <Link to="/courses" className="hover:opacity-80 transition-opacity">
                     Courses
                   </Link>
                 </li>
                 <li>
-                  <Link to="/podcast" className="hover:text-white transition-colors">
+                  <Link to="/podcast" className="hover:opacity-80 transition-opacity">
                     Podcast
                   </Link>
                 </li>
                 <li>
-                  <Link to="/community" className="hover:text-white transition-colors">
+                  <Link to="/community" className="hover:opacity-80 transition-opacity">
                     Community
                   </Link>
                 </li>
                 <li>
-                  <Link to="/pricing" className="hover:text-white transition-colors">
+                  <Link to="/pricing" className="hover:opacity-80 transition-opacity">
                     Pricing
                   </Link>
                 </li>
@@ -255,25 +275,25 @@ const Layout = () => {
             </div>
 
             <div>
-              <h3 className="text-white font-semibold mb-4">Company</h3>
-              <ul className="space-y-2 text-sm">
+              <h3 className="font-semibold mb-4" style={{ color: '#ffe6a7' }}>Company</h3>
+              <ul className="space-y-2 text-sm" style={{ color: '#bb9457' }}>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#" className="hover:opacity-80 transition-opacity">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#" className="hover:opacity-80 transition-opacity">
                     Contact
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#" className="hover:opacity-80 transition-opacity">
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#" className="hover:opacity-80 transition-opacity">
                     Terms of Service
                   </a>
                 </li>
@@ -281,25 +301,27 @@ const Layout = () => {
             </div>
 
             <div>
-              <h3 className="text-white font-semibold mb-4">Download App</h3>
+              <h3 className="font-semibold mb-4" style={{ color: '#ffe6a7' }}>Download App</h3>
               <div className="space-y-3">
                 <a
                   href="#"
-                  className="block bg-gray-800 hover:bg-gray-700 rounded-lg px-4 py-2 text-sm transition-colors"
+                  className="block rounded-lg px-4 py-2 text-sm transition-opacity hover:opacity-80"
+                  style={{ backgroundColor: '#6f1d1b', color: '#ffe6a7' }}
                 >
-                  📱 Download on iOS
+                  Download on iOS
                 </a>
                 <a
                   href="#"
-                  className="block bg-gray-800 hover:bg-gray-700 rounded-lg px-4 py-2 text-sm transition-colors"
+                  className="block rounded-lg px-4 py-2 text-sm transition-opacity hover:opacity-80"
+                  style={{ backgroundColor: '#6f1d1b', color: '#ffe6a7' }}
                 >
-                  🤖 Get it on Android
+                  Get it on Android
                 </a>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+          <div className="border-t mt-8 pt-8 text-center text-sm" style={{ borderColor: '#6f1d1b', color: '#bb9457' }}>
             <p>&copy; 2025 TKR Coaching. All rights reserved.</p>
           </div>
         </div>
