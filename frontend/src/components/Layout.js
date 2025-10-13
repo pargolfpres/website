@@ -47,15 +47,15 @@ const Layout = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2" data-testid="logo-link">
+            <Link to="/" className="flex items-center gap-2 shrink-0" data-testid="logo-link">
               <img
                 src="https://customer-assets.emergentagent.com/job_realestate-pro-35/artifacts/elh4rf6l_walllogoTR2.png"
                 alt="TKR Coaching"
-                className="h-10 w-10 object-contain"
+                className="h-9 w-9 object-contain flex-shrink-0"
               />
-              <div className="flex flex-col leading-tight">
-                <span className="text-lg font-bold whitespace-nowrap" style={{ color: '#6f1d1b' }}>TKR Coaching</span>
-                <span className="text-xs whitespace-nowrap" style={{ color: '#bb9457' }}>Todd K Roberson</span>
+              <div className="flex flex-col leading-none">
+                <span className="text-base font-bold whitespace-nowrap" style={{ color: '#6f1d1b' }}>TKR Coaching</span>
+                <span className="text-[10px] whitespace-nowrap" style={{ color: '#bb9457' }}>Todd K Roberson</span>
               </div>
             </Link>
 
