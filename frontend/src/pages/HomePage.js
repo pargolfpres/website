@@ -166,7 +166,7 @@ const HomePage = () => {
                   <div className="pt-4 border-t">
                     <p className="font-semibold text-gray-900">{testimonial.name}</p>
                     <p className="text-sm text-gray-600">{testimonial.role}</p>
-                    <div className="mt-2 inline-block bg-blue-100 tkr-burgundy text-sm font-medium px-3 py-1 rounded-full">
+                    <div className="mt-2 inline-block bg-cream tkr-burgundy text-sm font-medium px-3 py-1 rounded-full">
                       {testimonial.metric}
                     </div>
                   </div>
@@ -287,7 +287,7 @@ const HomePage = () => {
             ].map((feature, index) => (
               <Card key={index} className="border-2 hover:border-tkr-gold hover:shadow-xl transition-all duration-300 group" data-testid={`feature-card-${index}`}>
                 <CardContent className="p-6 space-y-4">
-                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 bg-cream rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     {feature.icon}
                   </div>
                   <h3 className="text-xl font-bold text-gray-900">{feature.title}</h3>
@@ -301,13 +301,13 @@ const HomePage = () => {
 
       {/* Podcast Preview */}
       {podcasts.length > 0 && (
-        <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-white" data-testid="podcast-preview-section">
+        <section className="py-20 bg-gradient-to-br from-blue-900 to-tkr-dark-burgundy text-white" data-testid="podcast-preview-section">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4">
                 Latest Podcast Episodes
               </h2>
-              <p className="text-lg text-blue-100">
+              <p className="text-lg text-cream">
                 Free for everyone! Listen, learn, and level up your business
               </p>
             </div>
@@ -322,12 +322,12 @@ const HomePage = () => {
                       className="w-full aspect-square object-cover rounded-lg"
                     />
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between text-sm text-blue-200">
+                      <div className="flex items-center justify-between text-sm opacity-80">
                         <span>Season {episode.season} • Episode {episode.episode}</span>
                         <span>{episode.duration}</span>
                       </div>
                       <h3 className="text-lg font-bold">{episode.title}</h3>
-                      <p className="text-blue-100 text-sm line-clamp-2">{episode.description}</p>
+                      <p className="text-cream text-sm line-clamp-2">{episode.description}</p>
                     </div>
                   </CardContent>
                 </Card>
@@ -336,7 +336,7 @@ const HomePage = () => {
 
             <div className="text-center mt-12">
               <Link to="/podcast">
-                <Button size="lg" variant="outline" className="bg-white tkr-burgundy hover:bg-blue-50 border-0 px-8 rounded-full">
+                <Button size="lg" variant="outline" className="bg-white tkr-burgundy hover:bg-cream-light border-0 px-8 rounded-full">
                   View All Episodes
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
@@ -474,7 +474,7 @@ const HomePage = () => {
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Ready to Transform Your Real Estate Business?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-cream mb-8 max-w-2xl mx-auto">
             Join 10,000+ agents already using TKR Coaching to close more deals and build thriving businesses
           </p>
           
@@ -482,7 +482,7 @@ const HomePage = () => {
             <Link to="/signup">
               <Button
                 size="lg"
-                className="bg-white tkr-burgundy hover:bg-blue-50 px-8 py-6 text-lg rounded-full shadow-xl"
+                className="bg-white tkr-burgundy hover:bg-cream-light px-8 py-6 text-lg rounded-full shadow-xl"
                 data-testid="final-cta-signup"
               >
                 <Download className="mr-2" size={20} />
@@ -501,7 +501,7 @@ const HomePage = () => {
             </Link>
           </div>
 
-          <p className="mt-6 text-blue-200">
+          <p className="mt-6 opacity-80">
             No credit card required • Cancel anytime • 30-day money-back guarantee
           </p>
         </div>

@@ -33,7 +33,7 @@ const CommunityPage = () => {
               <Users size={40} />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">TKR Community</h1>
-            <p className="text-xl text-blue-100 mb-6">
+            <p className="text-xl text-cream mb-6">
               Connect, learn, and grow with thousands of real estate professionals
             </p>
             <div className="inline-block bg-gold-500 text-white px-6 py-2 rounded-full font-semibold">
@@ -105,7 +105,7 @@ const CommunityPage = () => {
                   
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-800 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="text-white font-semibold text-lg">
                           {post.user_name.charAt(0)}
                         </span>
@@ -149,7 +149,7 @@ const CommunityPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-amber-50" data-testid="community-cta">
+      <section className="py-20 bg-gradient-to-br from-blue-50 to-cream" data-testid="community-cta">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <TrendingUp size={48} className="mx-auto tkr-burgundy mb-4" />
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -169,7 +169,7 @@ const CommunityPage = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-tkr-gold tkr-burgundy hover:bg-blue-50 px-8 rounded-full"
+                className="border-2 border-tkr-gold tkr-burgundy hover:bg-cream-light px-8 rounded-full"
               >
                 Create Free Account
               </Button>

@@ -55,7 +55,7 @@ const CoursesPage = () => {
     const colors = {
       free: 'bg-gray-100 text-gray-800',
       bronze: 'bg-orange-100 text-orange-800',
-      silver: 'bg-blue-100 tkr-burgundy',
+      silver: 'bg-cream tkr-burgundy',
       gold: 'bg-gold-100 text-amber-800'
     };
     return colors[tier] || 'bg-gray-100 text-gray-800';
@@ -68,7 +68,7 @@ const CoursesPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Expert-Led Courses</h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-cream">
               Master the skills that top agents use to dominate their markets
             </p>
           </div>
@@ -197,7 +197,7 @@ const CoursesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-50" data-testid="courses-cta">
+      <section className="py-16 bg-cream-light" data-testid="courses-cta">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Award size={48} className="mx-auto tkr-burgundy mb-4" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">

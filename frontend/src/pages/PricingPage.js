@@ -106,9 +106,9 @@ const PricingPage = () => {
         badge: 'bg-orange-100 text-orange-800'
       },
       blue: {
-        border: 'border-2 border-blue-200',
-        button: 'bg-blue-600 hover:bg-blue-700 text-white',
-        badge: 'bg-blue-100 tkr-burgundy'
+        border: 'border-2 border-cream',
+        button: 'bg-tkr-burgundy hover:bg-tkr-dark-burgundy text-white',
+        badge: 'bg-cream tkr-burgundy'
       },
       amber: {
         border: 'border-2 border-amber-200',
@@ -134,13 +134,13 @@ const PricingPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Choose Your Success Plan</h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-xl text-cream mb-8">
               Start free, upgrade anytime. Cancel whenever you want.
             </p>
             
             {/* Billing Toggle */}
             <div className="inline-flex items-center space-x-4 bg-white/10 backdrop-blur-md rounded-full p-2">
-              <span className={`px-4 py-2 ${billingCycle === 'monthly' ? 'font-semibold' : 'text-blue-200'}`}>
+              <span className={`px-4 py-2 ${billingCycle === 'monthly' ? 'font-semibold' : 'opacity-80'}`}>
                 Monthly
               </span>
               <Switch
@@ -148,7 +148,7 @@ const PricingPage = () => {
                 onCheckedChange={(checked) => setBillingCycle(checked ? 'yearly' : 'monthly')}
                 data-testid="billing-toggle"
               />
-              <span className={`px-4 py-2 ${billingCycle === 'yearly' ? 'font-semibold' : 'text-blue-200'}`}>
+              <span className={`px-4 py-2 ${billingCycle === 'yearly' ? 'font-semibold' : 'opacity-80'}`}>
                 Yearly
                 <span className="ml-2 text-green-300 text-sm font-bold">Save 16%</span>
               </span>

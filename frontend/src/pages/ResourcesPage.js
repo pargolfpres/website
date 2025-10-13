@@ -74,7 +74,7 @@ const ResourcesPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Resources & Tools</h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-xl text-cream">
               eBooks, workbooks, templates, and daily tips to power your success
             </p>
           </div>
@@ -142,10 +142,10 @@ const ResourcesPage = () => {
                   >
                     <CardContent className="p-6 space-y-4">
                       <div className="flex items-start justify-between">
-                        <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center">
+                        <div className="w-16 h-16 bg-cream rounded-2xl flex items-center justify-center">
                           {getResourceIcon(resource.resource_type)}
                         </div>
-                        <span className="bg-blue-100 tkr-burgundy text-xs font-semibold px-3 py-1 rounded-full">
+                        <span className="bg-cream tkr-burgundy text-xs font-semibold px-3 py-1 rounded-full">
                           {getResourceTypeLabel(resource.resource_type)}
                         </span>
                       </div>
@@ -186,7 +186,7 @@ const ResourcesPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-50">
+      <section className="py-16 bg-cream-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <BookOpen size={48} className="mx-auto tkr-burgundy mb-4" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">

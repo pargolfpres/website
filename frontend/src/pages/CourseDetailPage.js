@@ -89,7 +89,7 @@ const CourseDetailPage = () => {
     const colors = {
       free: 'bg-gray-100 text-gray-800',
       bronze: 'bg-orange-100 text-orange-800',
-      silver: 'bg-blue-100 tkr-burgundy',
+      silver: 'bg-cream tkr-burgundy',
       gold: 'bg-gold-100 text-amber-800'
     };
     return colors[tier] || 'bg-gray-100 text-gray-800';
@@ -100,7 +100,7 @@ const CourseDetailPage = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-tkr-burgundy to-tkr-dark-burgundy text-white py-12" data-testid="course-detail-header">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/courses" className="inline-flex items-center text-blue-200 hover:text-white mb-6">
+          <Link to="/courses" className="inline-flex items-center opacity-80 hover:text-white mb-6">
             <ArrowLeft size={20} className="mr-2" />
             Back to Courses
           </Link>
@@ -113,7 +113,7 @@ const CourseDetailPage = () => {
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold" data-testid="course-title">{course.title}</h1>
-              <p className="text-xl text-blue-100">{course.description}</p>
+              <p className="text-xl text-cream">{course.description}</p>
               
               <div className="flex flex-wrap gap-6">
                 <div className="flex items-center space-x-2">
@@ -131,7 +131,7 @@ const CourseDetailPage = () => {
               </div>
 
               <div className="pt-4">
-                <p className="text-sm text-blue-200 mb-1">Instructor</p>
+                <p className="text-sm opacity-80 mb-1">Instructor</p>
                 <p className="text-lg font-semibold">{course.instructor}</p>
               </div>
             </div>
@@ -212,7 +212,7 @@ const CourseDetailPage = () => {
                 >
                   <AccordionTrigger className="hover:no-underline">
                     <div className="flex items-center space-x-4 text-left">
-                      <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 bg-cream rounded-full flex items-center justify-center flex-shrink-0">
                         <span className="tkr-burgundy font-semibold text-sm">{index + 1}</span>
                       </div>
                       <div className="flex-1">
@@ -238,7 +238,7 @@ const CourseDetailPage = () => {
       </section>
 
       {/* Related Courses CTA */}
-      <section className="py-12 bg-blue-50">
+      <section className="py-12 bg-cream-light">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Level Up?</h2>
           <p className="text-lg text-gray-600 mb-8">

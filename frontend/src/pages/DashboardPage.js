@@ -65,7 +65,7 @@ const DashboardPage = () => {
     const colors = {
       free: 'bg-gray-100 text-gray-800',
       bronze: 'bg-orange-100 text-orange-800',
-      silver: 'bg-blue-100 tkr-burgundy',
+      silver: 'bg-cream tkr-burgundy',
       gold: 'bg-gold-100 text-amber-800'
     };
     return colors[tier] || 'bg-gray-100 text-gray-800';
@@ -87,7 +87,7 @@ const DashboardPage = () => {
           <CardContent className="p-6">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <div>
-                <p className="text-blue-200 mb-1">Current Plan</p>
+                <p className="opacity-80 mb-1">Current Plan</p>
                 <div className="flex items-center space-x-3">
                   <h2 className="text-3xl font-bold capitalize">{user?.membership_tier}</h2>
                   {user?.membership_tier === 'free' && (
@@ -101,7 +101,7 @@ const DashboardPage = () => {
                 <Link to="/pricing">
                   <Button
                     size="lg"
-                    className="bg-white tkr-burgundy hover:bg-blue-50 rounded-full"
+                    className="bg-white tkr-burgundy hover:bg-cream-light rounded-full"
                     data-testid="upgrade-button"
                   >
                     <TrendingUp className="mr-2" size={20} />
@@ -244,7 +244,7 @@ const DashboardPage = () => {
               <Card key={post.id} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <div className="w-12 h-12 bg-cream rounded-full flex items-center justify-center flex-shrink-0">
                       <span className="tkr-burgundy font-semibold">
                         {post.user_name.charAt(0)}
                       </span>
@@ -271,7 +271,7 @@ const DashboardPage = () => {
         </section>
 
         {/* Download Mobile App CTA */}
-        <Card className="bg-gradient-to-br from-blue-50 to-amber-50 border-2 border-blue-200">
+        <Card className="bg-gradient-to-br from-blue-50 to-cream border-2 border-cream">
           <CardContent className="p-8 text-center">
             <Download size={48} className="mx-auto tkr-burgundy mb-4" />
             <h2 className="text-2xl font-bold text-gray-900 mb-2">

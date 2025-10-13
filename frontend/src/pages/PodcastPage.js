@@ -46,7 +46,7 @@ const PodcastPage = () => {
               <Volume2 size={40} />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold mb-4">TKR Coaching Podcast</h1>
-            <p className="text-xl text-blue-100 mb-6">
+            <p className="text-xl text-cream mb-6">
               Real strategies, real results, real conversations with top-producing agents
             </p>
             <div className="inline-block bg-green-500 text-white px-6 py-2 rounded-full font-semibold">
@@ -112,7 +112,7 @@ const PodcastPage = () => {
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                           <Button
                             size="lg"
-                            className="rounded-full bg-white tkr-burgundy hover:bg-blue-50"
+                            className="rounded-full bg-white tkr-burgundy hover:bg-cream-light"
                             data-testid={`play-episode-${index}`}
                           >
                             <Play size={24} />
@@ -157,7 +157,7 @@ const PodcastPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-blue-50" data-testid="podcast-cta">
+      <section className="py-16 bg-cream-light" data-testid="podcast-cta">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <TrendingUp size={48} className="mx-auto tkr-burgundy mb-4" />
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -173,7 +173,7 @@ const PodcastPage = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-tkr-gold tkr-burgundy hover:bg-blue-50 px-8 rounded-full"
+              className="border-2 border-tkr-gold tkr-burgundy hover:bg-cream-light px-8 rounded-full"
             >
               View Pricing
             </Button>
