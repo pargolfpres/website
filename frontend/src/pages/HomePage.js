@@ -59,7 +59,8 @@ const HomePage = () => {
                 <Link to="/signup">
                   <Button
                     size="lg"
-                    className="bg-blue-800 hover:bg-blue-900 text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+                    className="text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl hover:opacity-90 transition-all"
+                    style={{ backgroundColor: '#6f1d1b' }}
                     data-testid="hero-cta-primary"
                   >
                     <Download className="mr-2" size={20} />
@@ -70,7 +71,8 @@ const HomePage = () => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 px-8 py-6 text-lg rounded-full"
+                    className="px-8 py-6 text-lg rounded-full hover:opacity-80 transition-opacity"
+                    style={{ borderColor: '#bb9457', borderWidth: '2px', color: '#6f1d1b' }}
                     data-testid="hero-cta-secondary"
                   >
                     Browse Courses
