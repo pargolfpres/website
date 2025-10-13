@@ -60,7 +60,7 @@ const Layout = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-6 ml-4">
               <Link
                 to="/courses"
                 data-testid="nav-courses-link"
