@@ -33,7 +33,7 @@ const HomePage = () => {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-amber-50 py-20 md:py-32" data-testid="hero-section">
+      <section className="relative py-20 md:py-32" style={{ background: 'linear-gradient(135deg, #fff9e6 0%, #ffffff 50%, #ffe6a7 100%)' }} data-testid="hero-section">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
