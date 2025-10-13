@@ -5,6 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
+import asyncio
 from pathlib import Path
 from pydantic import BaseModel, Field, EmailStr, ConfigDict
 from typing import List, Optional
@@ -16,10 +17,37 @@ import jwt
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
+# MongoDB connection with retry logic
+async def get_mongo_client():
+    """Get MongoDB client with retry logic"""
+    mongo_url = os.environ['MONGO_URL']
+    max_retries = 5
+    retry_delay = 2
+    
+    for attempt in range(max_retries):
+        try:
+            client = AsyncIOMotorClient(mongo_url, serverSelectionTimeoutMS=5000)
+            # Test connection
+            await client.admin.command('ping')
+            return client
+        except Exception as e:
+            if attempt < max_retries - 1:
+                logging.warning(f"MongoDB connection attempt {attempt + 1} failed: {str(e)}. Retrying in {retry_delay}s...")
+                await asyncio.sleep(retry_delay)
+                retry_delay *= 2  # Exponential backoff
+            else:
+                logging.error(f"Failed to connect to MongoDB after {max_retries} attempts")
+                raise
+
+# Initialize MongoDB connection
+try:
+    client = AsyncIOMotorClient(os.environ['MONGO_URL'], serverSelectionTimeoutMS=10000)
+    db = client[os.environ['DB_NAME']]
+except Exception as e:
+    logging.error(f"MongoDB initialization error: {str(e)}")
+    # Create a dummy db object to prevent app crash
+    client = None
+    db = None
 
 # JWT Configuration
 JWT_SECRET = os.environ.get('JWT_SECRET', 'your-secret-key-change-in-production')
