@@ -110,13 +110,13 @@ const HomePage = () => {
             <div className="relative" data-testid="hero-image">
               <div className="relative z-10">
                 <img
-                  src="https://via.placeholder.com/600x800?text=TKR+App+Screenshot"
+                  src="https://customer-assets.emergentagent.com/job_realestate-pro-35/artifacts/k2f1umpq_mobileapp.JPG"
                   alt="TKR Coaching Mobile App"
                   className="rounded-3xl shadow-2xl"
                 />
               </div>
-              <div className="absolute -top-10 -right-10 w-72 h-72 bg-cream rounded-full blur-3xl opacity-30"></div>
-              <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-gold-200 rounded-full blur-3xl opacity-30"></div>
+              <div className="absolute -top-10 -right-10 w-72 h-72 opacity-30 rounded-full blur-3xl" style={{ backgroundColor: '#ffe6a7' }}></div>
+              <div className="absolute -bottom-10 -left-10 w-72 h-72 opacity-30 rounded-full blur-3xl" style={{ backgroundColor: '#bb9457' }}></div>
             </div>
           </div>
         </div>
