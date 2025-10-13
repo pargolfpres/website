@@ -314,7 +314,7 @@ const HomePage = () => {
 
             <div className="grid md:grid-cols-3 gap-6">
               {podcasts.map((episode) => (
-                <Card key={episode.id} className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all">
+                <Card key={episode.id} className="border-0 hover:shadow-xl transition-all" style={{ backgroundColor: '#fff9e6' }}>
                   <CardContent className="p-6 space-y-4">
                     <img
                       src={episode.thumbnail}
@@ -322,12 +322,12 @@ const HomePage = () => {
                       className="w-full aspect-square object-cover rounded-lg"
                     />
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between text-sm opacity-80">
+                      <div className="flex items-center justify-between text-sm" style={{ color: '#bb9457' }}>
                         <span>Season {episode.season} • Episode {episode.episode}</span>
                         <span>{episode.duration}</span>
                       </div>
-                      <h3 className="text-lg font-bold">{episode.title}</h3>
-                      <p className="text-cream text-sm line-clamp-2">{episode.description}</p>
+                      <h3 className="text-lg font-bold" style={{ color: '#6f1d1b' }}>{episode.title}</h3>
+                      <p className="text-sm line-clamp-2" style={{ color: '#666666' }}>{episode.description}</p>
                     </div>
                   </CardContent>
                 </Card>
