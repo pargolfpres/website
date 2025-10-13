@@ -486,7 +486,7 @@ const HomePage = () => {
                 data-testid="final-cta-signup"
               >
                 <Download className="mr-2" size={20} />
-                Get Started Free Today
+                Get Started Today Today
               </Button>
             </Link>
             <Link to="/courses">

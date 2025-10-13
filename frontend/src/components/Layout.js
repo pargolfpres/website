@@ -134,7 +134,7 @@ const Layout = () => {
                       style={{ backgroundColor: '#6f1d1b' }}
                       data-testid="nav-signup-button"
                     >
-                      Get Started Free
+                      Get Started Today
                     </Button>
                   </Link>
                 </>
@@ -216,7 +216,7 @@ const Layout = () => {
                     </Link>
                     <Link to="/signup" onClick={() => setIsMenuOpen(false)}>
                       <Button className="w-full text-white" style={{ backgroundColor: '#6f1d1b' }}>
-                        Get Started Free
+                        Get Started Today
                       </Button>
                     </Link>
                   </>
