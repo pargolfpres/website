@@ -354,13 +354,12 @@ const HomePage = () => {
               Choose Your Success Plan
             </h2>
             <p className="text-lg text-gray-600">
-              Start free, upgrade anytime. Cancel whenever you want.
+              Upgrade anytime. Cancel whenever you want.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {[
-              { name: 'Free', price: '$0', cta: 'Start Free', popular: false },
               { name: 'Bronze', price: '$29', cta: 'Start Bronze', popular: false },
               { name: 'Silver', price: '$79', cta: 'Start Silver', popular: true },
               { name: 'Gold', price: '$149', cta: 'Start Gold', popular: false }
@@ -368,13 +367,14 @@ const HomePage = () => {
               <Card
                 key={tier.name}
                 className={`relative ${
-                  tier.popular ? 'border-4 border-tkr-gold shadow-xl scale-105' : 'border-2'
+                  tier.popular ? 'border-4 shadow-xl scale-105' : 'border-2'
                 }`}
+                style={tier.popular ? { borderColor: '#bb9457' } : {}}
                 data-testid={`pricing-card-${tier.name.toLowerCase()}`}
               >
                 {tier.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-tkr-burgundy text-white text-sm font-bold px-4 py-1 rounded-full">
+                    <span className="text-white text-sm font-bold px-4 py-1 rounded-full whitespace-nowrap" style={{ backgroundColor: '#6f1d1b' }}>
                       Most Popular
                     </span>
                   </div>
@@ -387,7 +387,8 @@ const HomePage = () => {
                   </div>
                   <Link to="/pricing">
                     <Button
-                      className={`w-full rounded-full ${
+                      className={`w-full rounded-full text-white`}
+                      style={{ backgroundColor: tier.popular ? '#6f1d1b' : '#bb9457' }}
                         tier.popular
                           ? 'bg-tkr-burgundy hover:opacity-90 text-white'
                           : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
