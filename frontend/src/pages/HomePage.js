@@ -1,0 +1,511 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Play, BookOpen, Users, Podcast, TrendingUp, Award, CheckCircle2, Star, ArrowRight, Download } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import axios from 'axios';
+
+const API_URL = process.env.REACT_APP_BACKEND_URL + '/api';
+
+const HomePage = () => {
+  const [stats, setStats] = useState(null);
+  const [podcasts, setPodcasts] = useState([]);
+  const [communityPosts, setCommunityPosts] = useState([]);
+
+  useEffect(() => {
+    // Fetch stats
+    axios.get(`${API_URL}/admin/analytics/content`)
+      .then(res => setStats(res.data))
+      .catch(err => console.error('Error fetching stats:', err));
+
+    // Fetch latest podcasts
+    axios.get(`${API_URL}/podcast/episodes`)
+      .then(res => setPodcasts(res.data.slice(0, 3)))
+      .catch(err => console.error('Error fetching podcasts:', err));
+
+    // Fetch community posts
+    axios.get(`${API_URL}/community/posts`)
+      .then(res => setCommunityPosts(res.data.slice(0, 2)))
+      .catch(err => console.error('Error fetching posts:', err));
+  }, []);
+
+  return (
+    <div className="overflow-x-hidden">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-blue-50 via-white to-amber-50 py-20 md:py-32" data-testid="hero-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="inline-block">
+                <span className="bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full">
+                  Trusted by 10,000+ Real Estate Professionals
+                </span>
+              </div>
+              
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight" data-testid="hero-heading">
+                Transform Your Real Estate Career{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-800 to-amber-600">
+                  From Your Pocket
+                </span>
+              </h1>
+              
+              <p className="text-lg text-gray-600 leading-relaxed" data-testid="hero-subheading">
+                Join thousands of agents closing more deals with our all-in-one mobile coaching app. 
+                Expert courses, daily tips, live coaching, and a thriving community—all at your fingertips.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link to="/signup">
+                  <Button
+                    size="lg"
+                    className="bg-blue-800 hover:bg-blue-900 text-white px-8 py-6 text-lg rounded-full shadow-lg hover:shadow-xl transition-all"
+                    data-testid="hero-cta-primary"
+                  >
+                    <Download className="mr-2" size={20} />
+                    Download Free & Start Learning
+                  </Button>
+                </Link>
+                <Link to="/courses">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-2 border-blue-800 text-blue-800 hover:bg-blue-50 px-8 py-6 text-lg rounded-full"
+                    data-testid="hero-cta-secondary"
+                  >
+                    Browse Courses
+                    <ArrowRight className="ml-2" size={20} />
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="flex flex-wrap gap-6 pt-4">
+                <div className="flex items-center space-x-2" data-testid="trust-badge-rating">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} className="fill-amber-500 text-amber-500" />
+                    ))}
+                  </div>
+                  <span className="text-sm font-medium text-gray-700">4.9 App Rating</span>
+                </div>
+                <div className="flex items-center space-x-2" data-testid="trust-badge-members">
+                  <Users size={16} className="text-blue-800" />
+                  <span className="text-sm font-medium text-gray-700">
+                    {stats ? `${stats.total_users.toLocaleString()}+ Active Members` : '10,000+ Active Members'}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2" data-testid="trust-badge-courses">
+                  <Award size={16} className="text-blue-800" />
+                  <span className="text-sm font-medium text-gray-700">
+                    {stats ? `${stats.total_courses}+ Courses` : '50+ Expert Courses'}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Hero Image - App Mockup */}
+            <div className="relative" data-testid="hero-image">
+              <div className="relative z-10">
+                <img
+                  src="https://via.placeholder.com/600x800?text=TKR+App+Screenshot"
+                  alt="TKR Coaching Mobile App"
+                  className="rounded-3xl shadow-2xl"
+                />
+              </div>
+              <div className="absolute -top-10 -right-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+              <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-amber-200 rounded-full blur-3xl opacity-30"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Social Proof Section */}
+      <section className="py-16 bg-white" data-testid="social-proof-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Real Results from Real Agents
+            </h2>
+            <p className="text-lg text-gray-600">
+              See how TKR Coaching helped agents like you achieve breakthrough success
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                quote: "I closed 8 more deals in 90 days after implementing the scripts from the listing course. Game changer!",
+                name: "Sarah Martinez",
+                role: "Realtor, Miami, FL",
+                metric: "+8 deals in 90 days"
+              },
+              {
+                quote: "The social media course helped me generate 23 qualified leads last month. Best investment I've made.",
+                name: "Michael Chen",
+                role: "Broker Associate, Austin, TX",
+                metric: "23 leads/month"
+              },
+              {
+                quote: "Increased my GCI by $47K in my first year thanks to the negotiation masterclass.",
+                name: "Jennifer Lopez",
+                role: "Agent, Los Angeles, CA",
+                metric: "+$47K GCI"
+              }
+            ].map((testimonial, index) => (
+              <Card key={index} className="border-2 hover:shadow-lg transition-shadow" data-testid={`testimonial-card-${index}`}>
+                <CardContent className="p-6 space-y-4">
+                  <div className="flex mb-2">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} size={16} className="fill-amber-500 text-amber-500" />
+                    ))}
+                  </div>
+                  <p className="text-gray-700 italic">"{testimonial.quote}"</p>
+                  <div className="pt-4 border-t">
+                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
+                    <p className="text-sm text-gray-600">{testimonial.role}</p>
+                    <div className="mt-2 inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full">
+                      {testimonial.metric}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Problem/Solution Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50" data-testid="problem-solution-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Real Estate Success Shouldn't Be This Complicated
+              </h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8 mb-12">
+              <Card className="border-2 border-red-200 bg-white">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">Without TKR Coaching:</h3>
+                  <ul className="space-y-3">
+                    {[
+                      'Overwhelmed by outdated training',
+                      'No time for lengthy courses',
+                      'Struggling to stay consistent',
+                      'Missing out on proven strategies',
+                      'Feeling isolated and unsupported'
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-red-500 mr-2">✗</span>
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+
+              <Card className="border-2 border-green-200 bg-white">
+                <CardContent className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">With TKR Coaching:</h3>
+                  <ul className="space-y-3">
+                    {[
+                      'Modern, mobile-first learning',
+                      'Bite-sized lessons you can complete anywhere',
+                      'Daily accountability and tips',
+                      'Cutting-edge strategies that work',
+                      'Supportive community of top agents'
+                    ].map((item, i) => (
+                      <li key={i} className="flex items-start">
+                        <CheckCircle2 className="text-green-500 mr-2 flex-shrink-0" size={20} />
+                        <span className="text-gray-700">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <Link to="/signup">
+                <Button size="lg" className="bg-blue-800 hover:bg-blue-900 text-white px-8 rounded-full">
+                  Start Your Transformation Today
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Feature Showcase */}
+      <section className="py-20 bg-white" data-testid="features-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Everything You Need to Succeed, Right in Your Pocket
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              A comprehensive mobile platform designed specifically for ambitious real estate professionals
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <BookOpen size={32} className="text-blue-800" />,
+                title: 'Expert-Led Video Courses',
+                description: 'Full course library with progress tracking, certificates, and lifetime access'
+              },
+              {
+                icon: <TrendingUp size={32} className="text-blue-800" />,
+                title: 'Daily/Weekly Tips',
+                description: 'Bite-sized actionable insights delivered right to your phone every day'
+              },
+              {
+                icon: <Play size={32} className="text-blue-800" />,
+                title: 'Live Coaching Sessions',
+                description: 'Zoom-integrated live events with recordings and Q&A with top coaches'
+              },
+              {
+                icon: <Users size={32} className="text-blue-800" />,
+                title: 'Thriving Community',
+                description: 'Real-time discussions, networking, and support from fellow agents'
+              },
+              {
+                icon: <Podcast size={32} className="text-blue-800" />,
+                title: 'Podcast Streaming',
+                description: 'Full podcast player with offline downloads and speed control'
+              },
+              {
+                icon: <Award size={32} className="text-blue-800" />,
+                title: 'Resources Library',
+                description: 'eBooks, workbooks, templates, and scripts ready to use'
+              }
+            ].map((feature, index) => (
+              <Card key={index} className="border-2 hover:border-blue-800 hover:shadow-xl transition-all duration-300 group" data-testid={`feature-card-${index}`}>
+                <CardContent className="p-6 space-y-4">
+                  <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                    {feature.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Podcast Preview */}
+      {podcasts.length > 0 && (
+        <section className="py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-white" data-testid="podcast-preview-section">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Latest Podcast Episodes
+              </h2>
+              <p className="text-lg text-blue-100">
+                Free for everyone! Listen, learn, and level up your business
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {podcasts.map((episode) => (
+                <Card key={episode.id} className="bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20 transition-all">
+                  <CardContent className="p-6 space-y-4">
+                    <img
+                      src={episode.thumbnail}
+                      alt={episode.title}
+                      className="w-full aspect-square object-cover rounded-lg"
+                    />
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between text-sm text-blue-200">
+                        <span>Season {episode.season} • Episode {episode.episode}</span>
+                        <span>{episode.duration}</span>
+                      </div>
+                      <h3 className="text-lg font-bold">{episode.title}</h3>
+                      <p className="text-blue-100 text-sm line-clamp-2">{episode.description}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <Link to="/podcast">
+                <Button size="lg" variant="outline" className="bg-white text-blue-800 hover:bg-blue-50 border-0 px-8 rounded-full">
+                  View All Episodes
+                  <ArrowRight className="ml-2" size={20} />
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Pricing Preview */}
+      <section className="py-20 bg-gray-50" data-testid="pricing-preview-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Choose Your Success Plan
+            </h2>
+            <p className="text-lg text-gray-600">
+              Start free, upgrade anytime. Cancel whenever you want.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {[
+              { name: 'Free', price: '$0', cta: 'Start Free', popular: false },
+              { name: 'Bronze', price: '$29', cta: 'Start Bronze', popular: false },
+              { name: 'Silver', price: '$79', cta: 'Start Silver', popular: true },
+              { name: 'Gold', price: '$149', cta: 'Start Gold', popular: false }
+            ].map((tier) => (
+              <Card
+                key={tier.name}
+                className={`relative ${
+                  tier.popular ? 'border-4 border-blue-800 shadow-xl scale-105' : 'border-2'
+                }`}
+                data-testid={`pricing-card-${tier.name.toLowerCase()}`}
+              >
+                {tier.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                    <span className="bg-blue-800 text-white text-sm font-bold px-4 py-1 rounded-full">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                <CardContent className="p-6 space-y-4 text-center">
+                  <h3 className="text-2xl font-bold text-gray-900">{tier.name}</h3>
+                  <div>
+                    <span className="text-4xl font-bold text-gray-900">{tier.price}</span>
+                    <span className="text-gray-600">/month</span>
+                  </div>
+                  <Link to="/pricing">
+                    <Button
+                      className={`w-full rounded-full ${
+                        tier.popular
+                          ? 'bg-blue-800 hover:bg-blue-900 text-white'
+                          : 'bg-gray-100 hover:bg-gray-200 text-gray-900'
+                      }`}
+                    >
+                      {tier.cta}
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link to="/pricing">
+              <Button variant="link" className="text-blue-800">
+                Compare all plans and features →
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white" data-testid="faq-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <Accordion type="single" collapsible className="space-y-4">
+            {[
+              {
+                question: 'Can I use the same login on web and mobile?',
+                answer: 'Yes! Your account works seamlessly across our website and mobile app. Sign in once and access your content anywhere.'
+              },
+              {
+                question: 'What devices are supported?',
+                answer: 'TKR Coaching works on iOS (iPhone/iPad), Android phones/tablets, and any modern web browser on desktop or laptop.'
+              },
+              {
+                question: 'Can I download content for offline use?',
+                answer: 'Absolutely! Bronze, Silver, and Gold members can download courses and podcast episodes to watch or listen offline.'
+              },
+              {
+                question: 'How do I cancel my subscription?',
+                answer: 'You can cancel anytime from your account dashboard. No questions asked, no cancellation fees.'
+              },
+              {
+                question: 'Is there a money-back guarantee?',
+                answer: 'Yes! We offer a 30-day money-back guarantee. If you\'re not satisfied, we\'ll refund your full payment.'
+              },
+              {
+                question: 'Do you offer team or brokerage plans?',
+                answer: 'Yes! Contact us for special pricing for teams of 5+ agents or entire brokerages.'
+              },
+              {
+                question: 'Are the courses updated regularly?',
+                answer: 'We update our content monthly to reflect the latest market trends, strategies, and real estate news.'
+              },
+              {
+                question: 'What makes TKR Coaching different?',
+                answer: 'We\'re mobile-first, community-driven, and focused on actionable strategies. Plus, you get daily tips, live coaching, and a supportive network—not just recorded courses.'
+              }
+            ].map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} data-testid={`faq-item-${index}`}>
+                <AccordionTrigger className="text-left text-lg font-semibold text-gray-900 hover:text-blue-800">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-600">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-20 bg-gradient-to-br from-blue-800 to-blue-900 text-white" data-testid="final-cta-section">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+            Ready to Transform Your Real Estate Business?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Join 10,000+ agents already using TKR Coaching to close more deals and build thriving businesses
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link to="/signup">
+              <Button
+                size="lg"
+                className="bg-white text-blue-800 hover:bg-blue-50 px-8 py-6 text-lg rounded-full shadow-xl"
+                data-testid="final-cta-signup"
+              >
+                <Download className="mr-2" size={20} />
+                Get Started Free Today
+              </Button>
+            </Link>
+            <Link to="/courses">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white/10 px-8 py-6 text-lg rounded-full"
+                data-testid="final-cta-courses"
+              >
+                Explore Courses
+              </Button>
+            </Link>
+          </div>
+
+          <p className="mt-6 text-blue-200">
+            No credit card required • Cancel anytime • 30-day money-back guarantee
+          </p>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default HomePage;
