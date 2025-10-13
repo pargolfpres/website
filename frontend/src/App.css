@@ -6,12 +6,36 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
 
+:root {
+  /* TKR Brand Colors */
+  --tkr-burgundy: #6f1d1b;
+  --tkr-dark-burgundy: #4a1312;
+  --tkr-gold: #bb9457;
+  --tkr-cream: #ffe6a7;
+  --tkr-light-cream: #fff9e6;
+  
+  /* Text Colors */
+  --tkr-text-dark: #333333;
+  --tkr-text-medium: #666666;
+  --tkr-text-light: #999999;
+}
+
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--tkr-text-dark);
 }
 
 .App {
   min-height: 100vh;
 }
+
+/* TKR Utility Classes */
+.tkr-burgundy { color: var(--tkr-burgundy); }
+.tkr-gold { color: var(--tkr-gold); }
+.tkr-cream { color: var(--tkr-cream); }
+.bg-tkr-burgundy { background-color: var(--tkr-burgundy); }
+.bg-tkr-gold { background-color: var(--tkr-gold); }
+.bg-tkr-cream { background-color: var(--tkr-cream); }
+.border-tkr-gold { border-color: var(--tkr-gold); }
