@@ -12,6 +12,8 @@ import PricingPage from '@/pages/PricingPage';
 import LoginPage from '@/pages/LoginPage';
 import SignupPage from '@/pages/SignupPage';
 import DashboardPage from '@/pages/DashboardPage';
+import PrivacyPolicyPage from '@/pages/PrivacyPolicyPage';
+import TermsOfServicePage from '@/pages/TermsOfServicePage';
 import '@/App.css';
 
 function App() {
