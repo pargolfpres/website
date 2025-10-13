@@ -693,9 +693,9 @@ async def startup_seed_data():
                 "thumbnail": "https://via.placeholder.com/600x400?text=Housing+Inventory",
                 "published_at": (datetime.now(timezone.utc) - timedelta(hours=8)).isoformat()
             }
-        ]
-        await db.news_articles.insert_many(sample_articles)
-        logger.info("Seeded sample news articles")
+            ]
+            await db.news_articles.insert_many(sample_articles)
+            logger.info("Seeded sample news articles")
     except Exception as e:
         logger.error(f"Error during database seeding: {str(e)}")
         logger.warning("Continuing without seeding - database may already be populated or will be migrated")
