@@ -632,13 +632,13 @@ async def startup_seed_data():
                 "tier_required": "silver",
                 "created_at": datetime.now(timezone.utc).isoformat()
             }
-        ]
-        await db.resources.insert_many(sample_resources)
-        logger.info("Seeded sample resources")
-    
-    # Seed community posts
-    if await db.community_posts.count_documents({}) == 0:
-        sample_posts = [
+            ]
+            await db.resources.insert_many(sample_resources)
+            logger.info("Seeded sample resources")
+        
+        # Seed community posts
+        if await db.community_posts.count_documents({}) == 0:
+            sample_posts = [
             {
                 "id": str(uuid.uuid4()),
                 "user_id": str(uuid.uuid4()),
