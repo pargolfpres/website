@@ -115,7 +115,7 @@ const HomePage = () => {
                   className="rounded-3xl shadow-2xl"
                 />
               </div>
-              <div className="absolute -top-10 -right-10 w-72 h-72 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+              <div className="absolute -top-10 -right-10 w-72 h-72 bg-cream rounded-full blur-3xl opacity-30"></div>
               <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-gold-200 rounded-full blur-3xl opacity-30"></div>
             </div>
           </div>
@@ -178,7 +178,7 @@ const HomePage = () => {
       </section>
 
       {/* Problem/Solution Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50" data-testid="problem-solution-section">
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-cream-light" data-testid="problem-solution-section">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
