@@ -597,13 +597,13 @@ async def startup_seed_data():
                 "thumbnail": "https://via.placeholder.com/400x400?text=Episode+3",
                 "published_at": (datetime.now(timezone.utc) - timedelta(days=14)).isoformat()
             }
-        ]
-        await db.podcast_episodes.insert_many(sample_episodes)
-        logger.info("Seeded sample podcast episodes")
-    
-    # Seed resources
-    if await db.resources.count_documents({}) == 0:
-        sample_resources = [
+            ]
+            await db.podcast_episodes.insert_many(sample_episodes)
+            logger.info("Seeded sample podcast episodes")
+        
+        # Seed resources
+        if await db.resources.count_documents({}) == 0:
+            sample_resources = [
             {
                 "id": str(uuid.uuid4()),
                 "title": "Follow up with all new leads within 5 minutes",
