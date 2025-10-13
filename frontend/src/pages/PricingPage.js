@@ -89,31 +89,44 @@ const PricingPage = () => {
   const getColorClasses = (color, popular) => {
     if (popular) {
       return {
-        border: 'border-4 border-tkr-gold',
-        button: 'bg-tkr-burgundy hover:opacity-90 text-white',
-        badge: 'bg-tkr-burgundy text-white'
+        border: 'border-4',
+        borderColor: '#bb9457',
+        button: 'text-white',
+        buttonBg: '#6f1d1b',
+        badge: 'text-white',
+        badgeBg: '#6f1d1b'
       };
     }
     const colors = {
       gray: {
         border: 'border-2 border-gray-200',
-        button: 'bg-gray-800 hover:bg-gray-900 text-white',
+        button: 'text-white',
+        buttonBg: '#333333',
         badge: 'bg-gray-100 text-gray-800'
       },
       orange: {
-        border: 'border-2 border-orange-200',
-        button: 'bg-orange-600 hover:bg-orange-700 text-white',
-        badge: 'bg-orange-100 text-orange-800'
+        border: 'border-2',
+        borderColor: '#bb9457',
+        button: 'text-white',
+        buttonBg: '#bb9457',
+        badge: 'text-white',
+        badgeBg: '#bb9457'
       },
       blue: {
-        border: 'border-2 border-cream',
-        button: 'bg-tkr-burgundy hover:bg-tkr-dark-burgundy text-white',
-        badge: 'bg-cream tkr-burgundy'
+        border: 'border-2',
+        borderColor: '#6f1d1b',
+        button: 'text-white',
+        buttonBg: '#6f1d1b',
+        badge: 'tkr-burgundy',
+        badgeBg: '#ffe6a7'
       },
       amber: {
-        border: 'border-2 border-amber-200',
-        button: 'bg-gold-600 hover:bg-gold-700 text-white',
-        badge: 'bg-gold-100 text-amber-800'
+        border: 'border-2',
+        borderColor: '#bb9457',
+        button: 'text-white',
+        buttonBg: '#bb9457',
+        badge: 'text-white',
+        badgeBg: '#bb9457'
       }
     };
     return colors[color];
