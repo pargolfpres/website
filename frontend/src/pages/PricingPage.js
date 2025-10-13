@@ -155,7 +155,7 @@ const PricingPage = () => {
       {/* Pricing Cards */}
       <section className="py-16" data-testid="pricing-cards">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {tiers.map((tier) => {
               const colorClasses = getColorClasses(tier.color, tier.popular);
               const savings = getSavings(tier);
