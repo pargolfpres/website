@@ -39,3 +39,17 @@ body {
 .bg-tkr-gold { background-color: var(--tkr-gold); }
 .bg-tkr-cream { background-color: var(--tkr-cream); }
 .border-tkr-gold { border-color: var(--tkr-gold); }
+
+/* Image Fix - Ensure all images display properly */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure Card images don't collapse */
+.card img,
+[class*="Card"] img {
+  min-height: 100px;
+  object-fit: cover;
+}
