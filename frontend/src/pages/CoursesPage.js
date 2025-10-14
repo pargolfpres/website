@@ -146,11 +146,18 @@ const CoursesPage = () => {
                     className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
                     data-testid={`course-card-${course.id}`}
                   >
-                    <div className="relative overflow-hidden">
+                    <div className="relative overflow-hidden bg-gray-200">
                       <img
                         src={course.thumbnail}
                         alt={course.title}
                         className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        style={{ minHeight: '192px', display: 'block' }}
+                        loading="lazy"
+                        onError={(e) => {
+                          e.target.style.display = 'block';
+                          e.target.style.minHeight = '192px';
+                          e.target.style.backgroundColor = '#e5e7eb';
+                        }}
                       />
                       <div className="absolute top-3 right-3">
                         <span className={`px-3 py-1 rounded-full text-xs font-semibold uppercase ${getTierBadgeColor(course.tier)}`}>
