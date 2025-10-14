@@ -103,11 +103,19 @@ const PodcastPage = () => {
                 >
                   <CardContent className="p-0">
                     <div className="grid md:grid-cols-[200px_1fr] gap-6">
-                      <div className="relative">
+                      <div className="relative bg-gray-200">
                         <img
                           src={episode.thumbnail}
                           alt={episode.title}
                           className="w-full h-48 md:h-full object-cover"
+                          style={{ minHeight: '192px', display: 'block' }}
+                          loading="lazy"
+                          onError={(e) => {
+                            console.error('Podcast image failed to load:', episode.thumbnail);
+                            e.target.style.display = 'block';
+                            e.target.style.minHeight = '192px';
+                            e.target.style.backgroundColor = '#e5e7eb';
+                          }}
                         />
                         <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
                           <Button
