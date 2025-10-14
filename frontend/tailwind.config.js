@@ -13,6 +13,10 @@ module.exports = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+  			'tkr-burgundy': '#6f1d1b',
+  			'tkr-dark-burgundy': '#4a1312',
+  			'tkr-gold': '#bb9457',
+  			'tkr-cream': '#ffe6a7',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
