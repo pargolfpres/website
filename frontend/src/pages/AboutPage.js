@@ -27,17 +27,13 @@ const AboutPage = () => {
             <div>
               <h2 className="text-4xl font-bold mb-6" style={{ color: '#6f1d1b' }}>Our Mission</h2>
               <p className="text-lg text-gray-700 mb-4">
-                At TKR Coaching, we believe every real estate professional deserves access to 
-                premium training, cutting-edge strategies, and a community that supports their growth.
+                Founded by Todd K. Roberson — award-winning mortgage expert, author, speaker, and Certified Veteran Lending Specialist — our mission is simple: to help driven professionals close the gap between what they know and what they do.
               </p>
               <p className="text-lg text-gray-700 mb-4">
-                Founded by Todd K Roberson, a top-producing agent with over 20 years of experience, 
-                TKR Coaching was created to bridge the gap between where agents are and where they 
-                want to be.
+                With more than 16 years of experience in real estate and lending, Todd has built a proven framework that blends coaching, accountability, and community to create measurable business growth. Through our results-driven programs, we focus on building habits, systems, and strategies that generate real, sustainable success.
               </p>
               <p className="text-lg text-gray-700">
-                Our mobile-first platform makes it easy to learn on-the-go, implement proven strategies, 
-                and connect with a community of ambitious professionals who are committed to excellence.
+                Because in business and in life, education without implementation is just information — and implementation is where the results live.
               </p>
             </div>
             <div className="bg-gray-100 rounded-2xl p-8">
@@ -47,8 +43,9 @@ const AboutPage = () => {
                 className="w-48 h-48 mx-auto mb-6"
               />
               <div className="text-center">
-                <h3 className="text-2xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Todd K Roberson</h3>
+                <h3 className="text-2xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Todd K. Roberson</h3>
                 <p className="text-lg" style={{ color: '#bb9457' }}>Founder & Lead Coach</p>
+                <p className="text-sm text-gray-600 mt-2">Award-Winning Mortgage Expert & Certified Veteran Lending Specialist</p>
               </div>
             </div>
           </div>
