@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 
 class TKRCoachingAPITester:
-    def __init__(self, base_url="https://realestate-pro-35.preview.emergentagent.com/api"):
+    def __init__(self, base_url="https://tkr-coaching.preview.emergentagent.com/api"):
         self.base_url = base_url
         self.token = None
         self.user_id = None
