@@ -244,7 +244,6 @@ const PricingPage = () => {
               <thead>
                 <tr className="border-b-2 border-gray-200">
                   <th className="text-left py-4 px-4 font-semibold text-gray-900">Feature</th>
-                  <th className="text-center py-4 px-4 font-semibold text-gray-900">Free</th>
                   <th className="text-center py-4 px-4 font-semibold text-gray-900">Bronze</th>
                   <th className="text-center py-4 px-4 font-semibold text-gray-900">Silver</th>
                   <th className="text-center py-4 px-4 font-semibold text-gray-900">Gold</th>
@@ -252,14 +251,14 @@ const PricingPage = () => {
               </thead>
               <tbody>
                 {[
-                  ['Daily Tips', true, true, true, true],
-                  ['Podcast Access', true, true, true, true],
-                  ['Course Access', false, 'Bronze Only', 'All Courses', 'All Courses'],
-                  ['Community', 'Read Only', 'Full Access', 'Priority', 'VIP'],
-                  ['Live Coaching', false, false, 'Weekly', 'Weekly'],
-                  ['1-on-1 Coaching', false, false, false, 'Monthly'],
-                  ['Resources Library', false, true, true, true],
-                  ['Templates & Scripts', false, false, true, true],
+                  ['Daily Tips', true, true, true],
+                  ['Podcast Access', true, true, true],
+                  ['Course Access', 'Bronze Only', 'All Courses', 'All Courses'],
+                  ['Community', 'Full Access', 'Priority', 'VIP'],
+                  ['Live Coaching', false, 'Weekly', 'Weekly'],
+                  ['1-on-1 Coaching', false, false, 'Monthly'],
+                  ['Resources Library', true, true, true],
+                  ['Templates & Scripts', false, true, true],
                 ].map((row, index) => (
                   <tr key={index} className="border-b border-gray-100">
                     <td className="py-4 px-4 text-gray-900">{row[0]}</td>
