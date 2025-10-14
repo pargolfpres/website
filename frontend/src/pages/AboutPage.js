@@ -52,6 +52,98 @@ const AboutPage = () => {
         </div>
       </section>
 
+      {/* Platform Features */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <h2 className="text-4xl font-bold text-center mb-4" style={{ color: '#6f1d1b' }}>Your Complete Success Ecosystem</h2>
+          <p className="text-lg text-gray-700 text-center mb-12 max-w-3xl mx-auto">
+            Our coaching platform and mobile app provide members with everything they need to succeed:
+          </p>
+          
+          <div className="space-y-6">
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-4">
+                  <Award size={32} className="flex-shrink-0 mt-1" style={{ color: '#6f1d1b' }} />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Self-Paced Online Courses</h3>
+                    <p className="text-gray-700">
+                      Teach actionable real estate and business growth strategies you can implement immediately.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-4">
+                  <Users size={32} className="flex-shrink-0 mt-1" style={{ color: '#6f1d1b' }} />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Live and Group Coaching Sessions</h3>
+                    <p className="text-gray-700">
+                      For skill development and accountability with expert coaches and peers.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-4">
+                  <Target size={32} className="flex-shrink-0 mt-1" style={{ color: '#6f1d1b' }} />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Goal Tracking & Personalized Content</h3>
+                    <p className="text-gray-700">
+                      Reminders and personalized content recommendations to keep you consistent and on track.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-4">
+                  <Heart size={32} className="flex-shrink-0 mt-1" style={{ color: '#6f1d1b' }} />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Private Community Access</h3>
+                    <p className="text-gray-700">
+                      Network with top-performing agents and professionals who share your commitment to excellence.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <div className="flex items-start space-x-4">
+                  <TrendingUp size={32} className="flex-shrink-0 mt-1" style={{ color: '#6f1d1b' }} />
+                  <div>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Downloadable Tools & Resources</h3>
+                    <p className="text-gray-700">
+                      Templates and marketing resources to help you implement strategies immediately.
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Who We Serve */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+          <h2 className="text-4xl font-bold text-center mb-8" style={{ color: '#6f1d1b' }}>Who We Serve</h2>
+          <p className="text-lg text-gray-700 text-center leading-relaxed">
+            Whether you're a new agent looking for structure or a seasoned pro ready to scale, our system gives you the clarity, tools, and accountability to execute consistently — and win with confidence.
+          </p>
+        </div>
+      </section>
+
       {/* Values Section */}
       <section className="py-16" style={{ backgroundColor: '#fff9e6' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
