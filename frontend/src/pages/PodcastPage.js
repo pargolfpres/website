@@ -56,6 +56,33 @@ const PodcastPage = () => {
         </div>
       </section>
 
+      {/* Spotify Podcast Embed */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold mb-4" style={{ color: '#6f1d1b' }}>Listen on Spotify</h2>
+              <p className="text-gray-600 text-lg">
+                Subscribe and listen to all episodes on your favorite podcast platform
+              </p>
+            </div>
+            <div className="rounded-xl overflow-hidden shadow-lg">
+              <iframe 
+                style={{ borderRadius: '12px' }}
+                src="https://open.spotify.com/embed/show/5wZAKHnzkyAcfouRn4p7z2?utm_source=generator&theme=0" 
+                width="100%" 
+                height="352" 
+                frameBorder="0" 
+                allowFullScreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy"
+                title="TKR Coaching Podcast on Spotify"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Filters */}
       <section className="py-6 bg-white border-b" data-testid="podcast-filters">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
