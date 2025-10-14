@@ -1,0 +1,188 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+
+const ContactPage = () => {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', formData);
+    alert('Thank you for your message! We\'ll get back to you soon.');
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50" data-testid="contact-page">
+      {/* Header */}
+      <section className="py-16" style={{ background: 'linear-gradient(135deg, #6f1d1b 0%, #4a1312 100%)' }}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center text-white">
+            <MessageCircle size={48} className="mx-auto mb-4" />
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
+            <p className="text-lg opacity-90">
+              Have questions? We're here to help you succeed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-12">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6" style={{ color: '#6f1d1b' }}>Send Us a Message</h2>
+              <Card>
+                <CardContent className="p-6">
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="space-y-2">
+                      <Label htmlFor="name">Your Name</Label>
+                      <Input
+                        id="name"
+                        type="text"
+                        placeholder="John Doe"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="you@example.com"
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="subject">Subject</Label>
+                      <Input
+                        id="subject"
+                        type="text"
+                        placeholder="How can we help?"
+                        value={formData.subject}
+                        onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message">Message</Label>
+                      <textarea
+                        id="message"
+                        rows="5"
+                        className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+                        style={{ focusRingColor: '#6f1d1b' }}
+                        placeholder="Tell us more about your inquiry..."
+                        value={formData.message}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full text-white py-6 rounded-full"
+                      style={{ backgroundColor: '#6f1d1b' }}
+                    >
+                      Send Message
+                    </Button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+
+            {/* Contact Information */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6" style={{ color: '#6f1d1b' }}>Get in Touch</h2>
+              
+              <div className="space-y-6">
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <Mail size={32} className="flex-shrink-0" style={{ color: '#6f1d1b' }} />
+                      <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
+                        <p className="text-gray-600">support@tkrcoaching.com</p>
+                        <p className="text-gray-600">info@toddkroberson.com</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <Phone size={32} className="flex-shrink-0" style={{ color: '#6f1d1b' }} />
+                      <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
+                        <p className="text-gray-600">(555) 123-4567</p>
+                        <p className="text-sm text-gray-500 mt-1">Monday - Friday, 9am - 5pm EST</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-4">
+                      <MapPin size={32} className="flex-shrink-0" style={{ color: '#6f1d1b' }} />
+                      <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">Office</h3>
+                        <p className="text-gray-600">
+                          TKR Coaching Headquarters<br />
+                          123 Real Estate Blvd<br />
+                          Suite 100<br />
+                          Your City, ST 12345
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-2" style={{ borderColor: '#bb9457', backgroundColor: '#fff9e6' }}>
+                  <CardContent className="p-6">
+                    <h3 className="font-semibold mb-2" style={{ color: '#6f1d1b' }}>Need Immediate Help?</h3>
+                    <p className="text-gray-700 mb-4">
+                      Check out our Help Center for instant answers to common questions.
+                    </p>
+                    <Button variant="outline" className="border-2" style={{ borderColor: '#6f1d1b', color: '#6f1d1b' }}>
+                      Visit Help Center
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Back to Home */}
+      <div className="text-center pb-12">
+        <Link to="/">
+          <Button className="text-white px-8 py-3 rounded-full" style={{ backgroundColor: '#6f1d1b' }}>
+            Back to Home
+          </Button>
+        </Link>
+      </div>
+    </div>
+  );
+};
+
+export default ContactPage;
