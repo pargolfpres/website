@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Test - TKR Coaching</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 2px solid #6f1d1b; }
+        img { max-width: 400px; margin: 10px; border: 2px solid #bb9457; }
+        .status { padding: 10px; margin: 10px 0; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>TKR Coaching - Image Loading Test</h1>
+    
+    <div class="test-section">
+        <h2>Mobile App Image (Hero)</h2>
+        <img 
+            src="https://customer-assets.emergentagent.com/job_realestate-pro-35/artifacts/k2f1umpq_mobileapp.JPG" 
+            alt="Mobile App"
+            onload="document.getElementById('hero-status').className='status success'; document.getElementById('hero-status').innerHTML='✅ Mobile app image loaded successfully';"
+            onerror="document.getElementById('hero-status').className='status error'; document.getElementById('hero-status').innerHTML='❌ Mobile app image failed to load';"
+        />
+        <div id="hero-status" class="status">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Podcast Images</h2>
+        <img 
+            src="https://images.unsplash.com/photo-1485579149621-3123dd979885?w=400&h=400&fit=crop" 
+            alt="Podcast 1"
+            onload="document.getElementById('podcast1-status').className='status success'; document.getElementById('podcast1-status').innerHTML='✅ Podcast 1 image loaded';"
+            onerror="document.getElementById('podcast1-status').className='status error'; document.getElementById('podcast1-status').innerHTML='❌ Podcast 1 failed. URL blocked or CORS issue?';"
+        />
+        <div id="podcast1-status" class="status">Loading...</div>
+
+        <img 
+            src="https://images.unsplash.com/photo-1695891583421-3cbbf1c2e3bd?w=400&h=400&fit=crop" 
+            alt="Podcast 2"
+            onload="document.getElementById('podcast2-status').className='status success'; document.getElementById('podcast2-status').innerHTML='✅ Podcast 2 image loaded';"
+            onerror="document.getElementById('podcast2-status').className='status error'; document.getElementById('podcast2-status').innerHTML='❌ Podcast 2 failed';"
+        />
+        <div id="podcast2-status" class="status">Loading...</div>
+
+        <img 
+            src="https://images.unsplash.com/photo-1758691736545-5c33b6255dca?w=400&h=400&fit=crop" 
+            alt="Podcast 3"
+            onload="document.getElementById('podcast3-status').className='status success'; document.getElementById('podcast3-status').innerHTML='✅ Podcast 3 image loaded';"
+            onerror="document.getElementById('podcast3-status').className='status error'; document.getElementById('podcast3-status').innerHTML='❌ Podcast 3 failed';"
+        />
+        <div id="podcast3-status" class="status">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h2>Course Images</h2>
+        <img 
+            src="https://images.unsplash.com/photo-1627161683077-e34782c24d81?w=400&h=300&fit=crop" 
+            alt="Course 1"
+            onload="document.getElementById('course1-status').className='status success'; document.getElementById('course1-status').innerHTML='✅ Course 1 image loaded';"
+            onerror="document.getElementById('course1-status').className='status error'; document.getElementById('course1-status').innerHTML='❌ Course 1 failed';"
+        />
+        <div id="course1-status" class="status">Loading...</div>
+    </div>
+
+    <h3>Diagnosis:</h3>
+    <p>If Unsplash images show ❌ errors, this means:</p>
+    <ul>
+        <li>Your network/firewall might be blocking Unsplash</li>
+        <li>Try a different network (mobile data vs WiFi)</li>
+        <li>Try a VPN</li>
+        <li>Some corporate/school networks block image hosting services</li>
+    </ul>
+</body>
+</html>
