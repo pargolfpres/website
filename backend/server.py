@@ -462,9 +462,61 @@ async def startup_check_db():
         # Test database connection
         await client.admin.command('ping')
         logger.info("Database connection successful")
+        
+        # Auto-fix placeholder images in production
+        await fix_placeholder_images()
     except Exception as e:
         logger.error(f"Database connection failed: {str(e)}")
         logger.warning("App starting without database connection - retry will happen on first request")
+
+async def fix_placeholder_images():
+    """Replace any placeholder images with real images"""
+    try:
+        # Check if we have placeholder images
+        placeholder_check = await db.courses.find_one({"thumbnail": {"$regex": "placeholder"}})
+        
+        if placeholder_check:
+            logger.info("Found placeholder images - updating to real images...")
+            
+            # Update Course Thumbnails
+            courses = [
+                ("Mastering Listing Presentations", "https://images.unsplash.com/photo-1627161683077-e34782c24d81?w=400&h=300&fit=crop"),
+                ("Social Media Marketing for Agents", "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=400&h=300&fit=crop"),
+                ("Negotiation Masterclass", "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=400&h=300&fit=crop"),
+                ("First-Time Homebuyer Specialist", "https://images.unsplash.com/photo-1609220136736-443140cffec6?w=400&h=300&fit=crop"),
+                ("Building a Million Dollar Database", "https://images.unsplash.com/photo-1723095469034-c3cf31e32730?w=400&h=300&fit=crop"),
+                ("Luxury Real Estate Excellence", "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?w=400&h=300&fit=crop")
+            ]
+            
+            for title, url in courses:
+                await db.courses.update_one({"title": title}, {"$set": {"thumbnail": url}})
+            
+            # Update Podcast Thumbnails
+            podcasts = [
+                ("5 Scripts That Close Every Listing", "https://images.unsplash.com/photo-1485579149621-3123dd979885?w=400&h=400&fit=crop"),
+                ("From Zero to Hero: My First Year Success", "https://images.unsplash.com/photo-1695891583421-3cbbf1c2e3bd?w=400&h=400&fit=crop"),
+                ("Market Shift Strategies: Thriving in Any Market", "https://images.unsplash.com/photo-1758691736545-5c33b6255dca?w=400&h=400&fit=crop")
+            ]
+            
+            for title, url in podcasts:
+                await db.podcast_episodes.update_one({"title": title}, {"$set": {"thumbnail": url}})
+            
+            # Update News Thumbnails
+            news = [
+                ("Mortgage Rates Drop to Lowest Level in 6 Months", "https://images.unsplash.com/photo-1626178793926-22b28830aa30?w=600&h=400&fit=crop"),
+                ("NAR Settlement: What Agents Need to Know", "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&h=400&fit=crop"),
+                ("Housing Inventory Increases for First Time This Year", "https://images.unsplash.com/photo-1623001466340-c65619d1682a?w=600&h=400&fit=crop")
+            ]
+            
+            for title, url in news:
+                await db.news_articles.update_one({"title": title}, {"$set": {"thumbnail": url}})
+            
+            logger.info("✅ Placeholder images replaced with real images!")
+        else:
+            logger.info("No placeholder images found - images are up to date")
+            
+    except Exception as e:
+        logger.warning(f"Could not check/fix placeholder images: {str(e)}")
 
 @app.on_event("startup")
 async def startup_seed_data():
