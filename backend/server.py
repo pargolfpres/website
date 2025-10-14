@@ -657,36 +657,25 @@ async def startup_seed_data():
             sample_episodes = [
             {
                 "id": str(uuid.uuid4()),
-                "title": "5 Scripts That Close Every Listing",
-                "description": "Learn the exact words top agents use to win seller confidence and secure listings.",
-                "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
-                "duration": "42:15",
+                "title": "Latest Episode - TKR Coaching Podcast",
+                "description": "Listen to our latest episode on Spotify for real strategies, real results, and real conversations with top-producing agents.",
+                "audio_url": "https://open.spotify.com/episode/06cL7lL5z9235PgbiyoXN0",
+                "duration": "45:00",
                 "season": 1,
                 "episode": 1,
-                "thumbnail": "https://via.placeholder.com/400x400?text=Episode+1",
+                "thumbnail": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=400&fit=crop",
                 "published_at": datetime.now(timezone.utc).isoformat()
             },
             {
                 "id": str(uuid.uuid4()),
-                "title": "From Zero to Hero: My First Year Success",
-                "description": "Interview with an agent who closed 38 deals in their first year. Hear their exact strategy.",
-                "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
-                "duration": "38:20",
+                "title": "Previous Episode - TKR Coaching Podcast",
+                "description": "Catch up on our previous episode featuring insights and strategies for real estate success.",
+                "audio_url": "https://open.spotify.com/episode/0wVNnRnLdRhtZ1mX3znpeg",
+                "duration": "42:00",
                 "season": 1,
                 "episode": 2,
-                "thumbnail": "https://via.placeholder.com/400x400?text=Episode+2",
+                "thumbnail": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=400&fit=crop",
                 "published_at": (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
-            },
-            {
-                "id": str(uuid.uuid4()),
-                "title": "Market Shift Strategies: Thriving in Any Market",
-                "description": "How to adapt your business strategy during market shifts and economic uncertainty.",
-                "audio_url": "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
-                "duration": "45:30",
-                "season": 1,
-                "episode": 3,
-                "thumbnail": "https://via.placeholder.com/400x400?text=Episode+3",
-                "published_at": (datetime.now(timezone.utc) - timedelta(days=14)).isoformat()
             }
             ]
             await db.podcast_episodes.insert_many(sample_episodes)
