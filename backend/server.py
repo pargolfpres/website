@@ -532,9 +532,8 @@ async def fix_placeholder_images():
             
             # Update Podcast Thumbnails
             podcasts = [
-                ("5 Scripts That Close Every Listing", "https://images.unsplash.com/photo-1485579149621-3123dd979885?w=400&h=400&fit=crop"),
-                ("From Zero to Hero: My First Year Success", "https://images.unsplash.com/photo-1695891583421-3cbbf1c2e3bd?w=400&h=400&fit=crop"),
-                ("Market Shift Strategies: Thriving in Any Market", "https://images.unsplash.com/photo-1758691736545-5c33b6255dca?w=400&h=400&fit=crop")
+                ("Latest Episode - TKR Coaching Podcast", "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=400&fit=crop"),
+                ("Previous Episode - TKR Coaching Podcast", "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=400&fit=crop")
             ]
             
             for title, url in podcasts:
