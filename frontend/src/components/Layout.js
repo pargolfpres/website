@@ -278,14 +278,14 @@ const Layout = () => {
               <h3 className="font-semibold mb-4" style={{ color: '#ffe6a7' }}>Company</h3>
               <ul className="space-y-2 text-sm" style={{ color: '#bb9457' }}>
                 <li>
-                  <a href="#" className="hover:opacity-80 transition-opacity">
+                  <Link to="/about" className="hover:opacity-80 transition-opacity">
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:opacity-80 transition-opacity">
+                  <Link to="/contact" className="hover:opacity-80 transition-opacity">
                     Contact
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link to="/privacy-policy" className="hover:opacity-80 transition-opacity">
