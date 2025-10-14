@@ -163,6 +163,12 @@ class NewsSource(BaseModel):
     logo: str
     url: str
 
+class ContactForm(BaseModel):
+    name: str
+    email: EmailStr
+    subject: str
+    message: str
+
 # ==================== Auth Helpers ====================
 
 def create_jwt_token(user_id: str, email: str) -> str:
