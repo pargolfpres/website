@@ -158,8 +158,8 @@ const ContactPage = () => {
                       <Phone size={32} className="flex-shrink-0" style={{ color: '#6f1d1b' }} />
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
-                        <p className="text-gray-600">(555) 123-4567</p>
-                        <p className="text-sm text-gray-500 mt-1">Monday - Friday, 9am - 5pm EST</p>
+                        <p className="text-gray-600">281-731-9454</p>
+                        <p className="text-sm text-gray-500 mt-1">Monday - Friday, 9am - 5pm CST</p>
                       </div>
                     </div>
                   </CardContent>
@@ -172,10 +172,9 @@ const ContactPage = () => {
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Office</h3>
                         <p className="text-gray-600">
-                          TKR Coaching Headquarters<br />
-                          123 Real Estate Blvd<br />
-                          Suite 100<br />
-                          Your City, ST 12345
+                          110 Cypress Station Dr<br />
+                          Suite 105<br />
+                          Houston, TX 77090
                         </p>
                       </div>
                     </div>
