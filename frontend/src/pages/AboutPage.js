@@ -192,84 +192,21 @@ const AboutPage = () => {
       {/* Stats Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12" style={{ color: '#6f1d1b' }}>Our Impact</h2>
+          <h2 className="text-4xl font-bold text-center mb-12" style={{ color: '#6f1d1b' }}>Our Track Record</h2>
           
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center">
-              <p className="text-5xl font-bold mb-2" style={{ color: '#6f1d1b' }}>10,000+</p>
-              <p className="text-gray-600">Active Members</p>
+              <p className="text-5xl font-bold mb-2" style={{ color: '#6f1d1b' }}>16+</p>
+              <p className="text-gray-600">Years of Experience</p>
             </div>
             <div className="text-center">
-              <p className="text-5xl font-bold mb-2" style={{ color: '#6f1d1b' }}>50+</p>
-              <p className="text-gray-600">Expert Courses</p>
+              <p className="text-5xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Award</p>
+              <p className="text-gray-600">Winning Mortgage Expert</p>
             </div>
             <div className="text-center">
-              <p className="text-5xl font-bold mb-2" style={{ color: '#6f1d1b' }}>100+</p>
-              <p className="text-gray-600">Podcast Episodes</p>
+              <p className="text-5xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Proven</p>
+              <p className="text-gray-600">Results-Driven Framework</p>
             </div>
-            <div className="text-center">
-              <p className="text-5xl font-bold mb-2" style={{ color: '#6f1d1b' }}>4.9</p>
-              <div className="flex justify-center space-x-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={20} className="fill-current" style={{ color: '#bb9457' }} />
-                ))}
-              </div>
-              <p className="text-gray-600 mt-2">App Rating</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-16" style={{ backgroundColor: '#fff9e6' }}>
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-          <h2 className="text-4xl font-bold text-center mb-12" style={{ color: '#6f1d1b' }}>Why Choose TKR Coaching?</h2>
-          
-          <div className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Target size={32} className="flex-shrink-0 mt-1" style={{ color: '#6f1d1b' }} />
-                  <div>
-                    <h3 className="text-xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Proven Strategies</h3>
-                    <p className="text-gray-700">
-                      Our courses are built on real-world experience and proven methodologies that have helped 
-                      thousands of agents increase their production and close more deals.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Users size={32} className="flex-shrink-0 mt-1" style={{ color: '#6f1d1b' }} />
-                  <div>
-                    <h3 className="text-xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Expert Instructors</h3>
-                    <p className="text-gray-700">
-                      Learn from top-producing agents and industry leaders who share their insider strategies, 
-                      scripts, and tactics for success in today's competitive market.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <TrendingUp size={32} className="flex-shrink-0 mt-1" style={{ color: '#6f1d1b' }} />
-                  <div>
-                    <h3 className="text-xl font-bold mb-2" style={{ color: '#6f1d1b' }}>Mobile-First Platform</h3>
-                    <p className="text-gray-700">
-                      Access your training anytime, anywhere. Our mobile app lets you learn during your commute, 
-                      between appointments, or whenever you have a few minutes to invest in your growth.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
