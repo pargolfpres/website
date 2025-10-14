@@ -318,13 +318,22 @@ const HomePage = () => {
               {podcasts.map((episode) => (
                 <Card key={episode.id} className="border-0 hover:shadow-xl transition-all" style={{ backgroundColor: '#fff9e6' }}>
                   <CardContent className="p-6 space-y-4">
-                    <img
-                      src={episode.thumbnail}
-                      alt={episode.title}
-                      className="w-full aspect-square object-cover rounded-lg"
-                      style={{ minHeight: '250px', display: 'block' }}
-                      loading="lazy"
-                    />
+                    <div className="w-full bg-gray-200 rounded-lg overflow-hidden" style={{ aspectRatio: '1/1' }}>
+                      <img
+                        src={episode.thumbnail}
+                        alt={episode.title}
+                        className="w-full h-full object-cover rounded-lg"
+                        style={{ minHeight: '250px', display: 'block' }}
+                        loading="lazy"
+                        onError={(e) => {
+                          console.error('Homepage podcast image failed:', episode.thumbnail);
+                          e.target.style.display = 'block';
+                          e.target.style.minHeight = '250px';
+                          e.target.style.width = '100%';
+                          e.target.style.backgroundColor = '#e5e7eb';
+                        }}
+                      />
+                    </div>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-sm" style={{ color: '#bb9457' }}>
                         <span>Season {episode.season} • Episode {episode.episode}</span>
