@@ -212,11 +212,14 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16" style={{ backgroundColor: '#fff9e6' }}>
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6" style={{ color: '#6f1d1b' }}>Ready to Transform Your Career?</h2>
-          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join thousands of agents who are already using TKR Coaching to build thriving businesses.
+          <h2 className="text-4xl font-bold mb-6" style={{ color: '#6f1d1b' }}>Ready to Close the Gap?</h2>
+          <p className="text-xl text-gray-600 mb-4 max-w-3xl mx-auto">
+            Stop letting what you know go to waste. Start implementing, building habits, and seeing real results.
+          </p>
+          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto font-semibold">
+            Because education without implementation is just information — and implementation is where the results live.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/signup">
@@ -224,9 +227,9 @@ const AboutPage = () => {
                 Get Started Today
               </Button>
             </Link>
-            <Link to="/courses">
+            <Link to="/pricing">
               <Button size="lg" variant="outline" className="border-2 px-8 py-6 rounded-full" style={{ borderColor: '#bb9457', color: '#6f1d1b' }}>
-                Browse Courses
+                View Pricing
               </Button>
             </Link>
           </div>
