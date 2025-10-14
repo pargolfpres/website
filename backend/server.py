@@ -416,18 +416,51 @@ async def get_news_sources():
 
 @api_router.get("/admin/analytics/content")
 async def get_content_analytics():
+    """Get content analytics - courses, episodes, resources count"""
     return {
-        "total_users": await db.users.count_documents({}),
-        "total_courses": await db.courses.count_documents({}),
-        "total_podcast_episodes": await db.podcast_episodes.count_documents({}),
-        "total_community_posts": await db.community_posts.count_documents({}),
-        "membership_breakdown": {
-            "free": await db.users.count_documents({"membership_tier": "free"}),
+        "courses": await db.courses.count_documents({}),
+        "podcast_episodes": await db.podcast_episodes.count_documents({}),
+        "resources": await db.resources.count_documents({}),
+        "community_posts": await db.community_posts.count_documents({}),
+        "users": {
+            "total": await db.users.count_documents({}),
             "bronze": await db.users.count_documents({"membership_tier": "bronze"}),
             "silver": await db.users.count_documents({"membership_tier": "silver"}),
             "gold": await db.users.count_documents({"membership_tier": "gold"})
         }
     }
+
+# ==================== Contact Form ====================
+
+@api_router.post("/contact")
+async def submit_contact_form(form: ContactForm):
+    """Submit contact form - stores in database for admin review"""
+    try:
+        contact_data = {
+            "id": str(uuid.uuid4()),
+            "name": form.name,
+            "email": form.email,
+            "subject": form.subject,
+            "message": form.message,
+            "status": "new",
+            "created_at": datetime.now(timezone.utc).isoformat(),
+            "recipient_email": "info@toddkroberson.com"
+        }
+        
+        await db.contact_submissions.insert_one(contact_data)
+        
+        # Note: In production, integrate with email service (SendGrid, AWS SES, etc.)
+        # to actually send emails to info@toddkroberson.com
+        # For now, submissions are stored in MongoDB for admin review
+        
+        return {
+            "success": True,
+            "message": "Thank you for your message. We will get back to you soon!",
+            "submission_id": contact_data["id"]
+        }
+    except Exception as e:
+        logging.error(f"Error submitting contact form: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to submit contact form")
 
 # ==================== Root Route ====================
 
