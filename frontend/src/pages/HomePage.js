@@ -322,6 +322,8 @@ const HomePage = () => {
                       src={episode.thumbnail}
                       alt={episode.title}
                       className="w-full aspect-square object-cover rounded-lg"
+                      style={{ minHeight: '250px', display: 'block' }}
+                      loading="lazy"
                     />
                     <div className="space-y-2">
                       <div className="flex items-center justify-between text-sm" style={{ color: '#bb9457' }}>
