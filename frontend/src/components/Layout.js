@@ -288,14 +288,14 @@ const Layout = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:opacity-80 transition-opacity">
+                  <Link to="/privacy-policy" className="hover:opacity-80 transition-opacity">
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:opacity-80 transition-opacity">
+                  <Link to="/terms-of-service" className="hover:opacity-80 transition-opacity">
                     Terms of Service
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
