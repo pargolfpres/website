@@ -112,7 +112,9 @@ const HomePage = () => {
                 <img
                   src="https://customer-assets.emergentagent.com/job_realestate-pro-35/artifacts/k2f1umpq_mobileapp.JPG"
                   alt="TKR Coaching Mobile App"
-                  className="rounded-3xl shadow-2xl"
+                  className="rounded-3xl shadow-2xl w-full h-auto"
+                  style={{ maxWidth: '600px', minHeight: '400px', display: 'block' }}
+                  loading="eager"
                 />
               </div>
               <div className="absolute -top-10 -right-10 w-72 h-72 opacity-30 rounded-full blur-3xl" style={{ backgroundColor: '#ffe6a7' }}></div>
