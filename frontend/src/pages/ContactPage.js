@@ -125,8 +125,9 @@ const ContactPage = () => {
                       type="submit"
                       className="w-full text-white py-6 rounded-full"
                       style={{ backgroundColor: '#6f1d1b' }}
+                      disabled={isSubmitting}
                     >
-                      Send Message
+                      {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>
                   </form>
                 </CardContent>
