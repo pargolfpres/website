@@ -418,12 +418,12 @@ async def get_news_sources():
 async def get_content_analytics():
     """Get content analytics - courses, episodes, resources count"""
     return {
-        "courses": await db.courses.count_documents({}),
-        "podcast_episodes": await db.podcast_episodes.count_documents({}),
-        "resources": await db.resources.count_documents({}),
-        "community_posts": await db.community_posts.count_documents({}),
-        "users": {
-            "total": await db.users.count_documents({}),
+        "total_users": await db.users.count_documents({}),
+        "total_courses": await db.courses.count_documents({}),
+        "total_podcast_episodes": await db.podcast_episodes.count_documents({}),
+        "total_community_posts": await db.community_posts.count_documents({}),
+        "membership_breakdown": {
+            "free": await db.users.count_documents({"membership_tier": "free"}),
             "bronze": await db.users.count_documents({"membership_tier": "bronze"}),
             "silver": await db.users.count_documents({"membership_tier": "silver"}),
             "gold": await db.users.count_documents({"membership_tier": "gold"})
