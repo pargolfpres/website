@@ -586,7 +586,7 @@ async def update_podcast_episodes(episodes: List[PodcastEpisodeUpdate]):
                 "id": str(uuid.uuid4()),
                 "title": ep.title,
                 "description": ep.description,
-                "audio_url": ep.spotify_url,
+                "audio_url": ep.get_url(),  # Use either spotify_url or audio_url
                 "duration": ep.duration,
                 "season": 1,
                 "episode": idx + 1,
