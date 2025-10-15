@@ -171,6 +171,30 @@ class ContactForm(BaseModel):
     subject: str
     message: str
 
+class AdminLogin(BaseModel):
+    email: EmailStr
+    password: str
+
+class PodcastEpisodeUpdate(BaseModel):
+    title: str
+    spotify_url: str
+    description: Optional[str] = ""
+    duration: Optional[str] = "45:00"
+
+class PageContentUpdate(BaseModel):
+    page_name: str  # "about" or "contact"
+    content: str
+
+# ==================== AWS S3 Setup ====================
+
+s3_client = boto3.client(
+    's3',
+    aws_access_key_id=os.environ.get('AWS_ACCESS_KEY_ID'),
+    aws_secret_access_key=os.environ.get('AWS_SECRET_ACCESS_KEY'),
+    region_name=os.environ.get('AWS_REGION', 'us-east-1')
+)
+S3_BUCKET = os.environ.get('AWS_S3_BUCKET', 'tkr-coaching-assets')
+
 # ==================== Auth Helpers ====================
 
 def create_jwt_token(user_id: str, email: str) -> str:
