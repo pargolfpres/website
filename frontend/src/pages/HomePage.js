@@ -58,10 +58,7 @@ const HomePage = () => {
               </div>
               
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#6f1d1b' }} data-testid="hero-heading">
-                Transform Your Real Estate Career{' '}
-                <span className="text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(135deg, #6f1d1b 0%, #bb9457 100%)' }}>
-                  From Your Pocket
-                </span>
+                {heroContent.headline}
               </h1>
               
               <p className="text-lg text-gray-600 leading-relaxed" data-testid="hero-subheading">
