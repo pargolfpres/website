@@ -15,6 +15,24 @@ const ContactPage = () => {
   });
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [submitStatus, setSubmitStatus] = React.useState(null);
+  const [contactInfo, setContactInfo] = React.useState({
+    phone: '281-731-9454',
+    email: 'info@toddkroberson.com',
+    address: '110 Cypress Station Dr, Suite 105, Houston, TX 77090',
+    hours: 'Monday - Friday, 9am - 5pm CST'
+  });
+
+  React.useEffect(() => {
+    // Fetch contact info
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/content/contact_info`)
+      .then(res => res.json())
+      .then(data => {
+        if (data.data && Object.keys(data.data).length > 0) {
+          setContactInfo(data.data);
+        }
+      })
+      .catch(err => console.error('Error fetching contact info:', err));
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
