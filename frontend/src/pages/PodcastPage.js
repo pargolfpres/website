@@ -21,6 +21,16 @@ const PodcastPage = () => {
   });
 
   useEffect(() => {
+    // Fetch podcast labels
+    axios.get(`${API_URL}/content/podcast_labels`)
+      .then(res => {
+        if (res.data.data && Object.keys(res.data.data).length > 0) {
+          setPodcastLabels(res.data.data);
+        }
+      })
+      .catch(err => console.error('Error fetching labels:', err));
+
+    // Fetch episodes
     axios.get(`${API_URL}/podcast/episodes`)
       .then(res => {
         setEpisodes(res.data);
