@@ -74,7 +74,7 @@ const HomePage = () => {
                     data-testid="hero-cta-primary"
                   >
                     <Download className="mr-2" size={20} />
-                    Download Now & Start Learning
+                    {heroContent.cta_text}
                   </Button>
                 </Link>
                 <Link to="/courses">
