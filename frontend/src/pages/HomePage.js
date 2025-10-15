@@ -4,6 +4,7 @@ import { Play, BookOpen, Users, Podcast, TrendingUp, Award, CheckCircle2, Star, 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import EditableText from '@/components/EditableText';
 import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_BACKEND_URL + '/api';
