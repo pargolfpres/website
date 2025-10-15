@@ -185,6 +185,11 @@ class PageContentUpdate(BaseModel):
     page_name: str  # "about" or "contact"
     content: str
 
+class ContentBlock(BaseModel):
+    section: str  # e.g., "homepage_hero", "about_mission", "contact_info"
+    content_type: str  # "text", "html", "image", "json"
+    data: dict  # Flexible data structure
+
 # ==================== AWS S3 Setup ====================
 
 s3_client = boto3.client(
