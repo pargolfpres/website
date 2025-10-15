@@ -604,6 +604,42 @@ async def get_podcast_episodes_admin():
     episodes = await db.podcast_episodes.find().to_list(length=100)
     return [{"id": ep["id"], "title": ep["title"], "audio_url": ep.get("audio_url", ""), "description": ep.get("description", ""), "duration": ep.get("duration", "")} for ep in episodes]
 
+@api_router.get("/admin/content/{section}")
+async def get_content_section(section: str):
+    """Get content for a specific section"""
+    content = await db.page_content.find_one({"section": section})
+    if not content:
+        return {"section": section, "data": {}}
+    return {"section": content["section"], "data": content.get("data", {})}
+
+@api_router.post("/admin/content/{section}")
+async def update_content_section(section: str, content: dict):
+    """Update content for a specific section"""
+    try:
+        await db.page_content.update_one(
+            {"section": section},
+            {"$set": {"section": section, "data": content, "updated_at": datetime.now(timezone.utc).isoformat()}},
+            upsert=True
+        )
+        return {"success": True, "message": f"Updated {section}"}
+    except Exception as e:
+        logging.error(f"Error updating content: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to update content")
+
+@api_router.get("/admin/content/all")
+async def get_all_content():
+    """Get all content sections"""
+    content = await db.page_content.find().to_list(length=100)
+    return [{"section": c["section"], "data": c.get("data", {})} for c in content]
+
+@api_router.get("/content/{section}")
+async def get_public_content(section: str):
+    """Public endpoint to get content for frontend"""
+    content = await db.page_content.find_one({"section": section})
+    if not content:
+        return {"section": section, "data": {}}
+    return {"section": content["section"], "data": content.get("data", {})}
+
 # ==================== Root Route ====================
 
 @api_router.get("/")
