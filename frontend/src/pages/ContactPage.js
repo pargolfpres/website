@@ -163,8 +163,7 @@ const ContactPage = () => {
                       <Mail size={32} className="flex-shrink-0" style={{ color: '#6f1d1b' }} />
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Email</h3>
-                        <p className="text-gray-600">support@tkrcoaching.com</p>
-                        <p className="text-gray-600">info@toddkroberson.com</p>
+                        <p className="text-gray-600">{contactInfo.email}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -176,8 +175,8 @@ const ContactPage = () => {
                       <Phone size={32} className="flex-shrink-0" style={{ color: '#6f1d1b' }} />
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Phone</h3>
-                        <p className="text-gray-600">281-731-9454</p>
-                        <p className="text-sm text-gray-500 mt-1">Monday - Friday, 9am - 5pm CST</p>
+                        <p className="text-gray-600">{contactInfo.phone}</p>
+                        <p className="text-sm text-gray-500 mt-1">{contactInfo.hours}</p>
                       </div>
                     </div>
                   </CardContent>
@@ -189,11 +188,7 @@ const ContactPage = () => {
                       <MapPin size={32} className="flex-shrink-0" style={{ color: '#6f1d1b' }} />
                       <div>
                         <h3 className="font-semibold text-gray-900 mb-2">Office</h3>
-                        <p className="text-gray-600">
-                          110 Cypress Station Dr<br />
-                          Suite 105<br />
-                          Houston, TX 77090
-                        </p>
+                        <p className="text-gray-600">{contactInfo.address}</p>
                       </div>
                     </div>
                   </CardContent>
