@@ -177,9 +177,14 @@ class AdminLogin(BaseModel):
 
 class PodcastEpisodeUpdate(BaseModel):
     title: str
-    spotify_url: str
+    spotify_url: Optional[str] = None
+    audio_url: Optional[str] = None
     description: Optional[str] = ""
     duration: Optional[str] = "45:00"
+    
+    def get_url(self):
+        """Return whichever URL field is populated"""
+        return self.spotify_url or self.audio_url or ""
 
 class PageContentUpdate(BaseModel):
     page_name: str  # "about" or "contact"
