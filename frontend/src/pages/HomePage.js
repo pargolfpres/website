@@ -62,8 +62,7 @@ const HomePage = () => {
               </h1>
               
               <p className="text-lg text-gray-600 leading-relaxed" data-testid="hero-subheading">
-                Join thousands of agents closing more deals with our all-in-one mobile coaching app. 
-                Expert courses, daily tips, live coaching, and a thriving community—all at your fingertips.
+                {heroContent.subheadline}
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
