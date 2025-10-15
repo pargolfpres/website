@@ -105,18 +105,38 @@ const Layout = () => {
               </Link>
             </div>
 
-            {/* Auth Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
+            {/* Auth Buttons / User Menu */}
+            <div className="hidden md:flex items-center space-x-3">
+              {/* Edit Mode Toggle for Admins */}
+              {isAdmin && (
+                <Button
+                  onClick={toggleEditMode}
+                  variant={isEditMode ? "default" : "outline"}
+                  style={{
+                    backgroundColor: isEditMode ? '#6f1d1b' : 'transparent',
+                    borderColor: '#6f1d1b',
+                    color: isEditMode ? 'white' : '#6f1d1b'
+                  }}
+                  title={isEditMode ? "Exit Edit Mode" : "Enter Edit Mode"}
+                >
+                  <Edit size={16} className="mr-2" />
+                  {isEditMode ? 'Exit Edit' : 'Edit Site'}
+                </Button>
+              )}
+              
               {user ? (
                 <>
+                  <span className="text-sm" style={{ color: '#6f1d1b' }}>
+                    Welcome, {user.name}
+                  </span>
                   <Link to="/dashboard">
                     <Button variant="ghost" data-testid="nav-dashboard-button" style={{ color: '#6f1d1b' }}>
                       Dashboard
                     </Button>
                   </Link>
                   <Button
-                    variant="outline"
                     onClick={handleLogout}
+                    variant="outline"
                     data-testid="nav-logout-button"
                     style={{ borderColor: '#bb9457', color: '#6f1d1b' }}
                   >
