@@ -88,7 +88,12 @@ const HomePage = () => {
                     data-testid="hero-cta-primary"
                   >
                     <Download className="mr-2" size={20} />
-                    {heroContent.cta_text}
+                    <EditableText
+                      section="homepage_hero"
+                      field="cta_text"
+                    >
+                      {heroContent.cta_text}
+                    </EditableText>
                   </Button>
                 </Link>
                 <Link to="/courses">
