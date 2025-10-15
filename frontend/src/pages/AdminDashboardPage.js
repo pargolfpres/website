@@ -8,6 +8,125 @@ import { Textarea } from '@/components/ui/textarea';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Upload, Podcast, FileText, LogOut, Trash2, Plus } from 'lucide-react';
 
+// Content Editor Component
+const ContentEditor = () => {
+  const [selectedPage, setSelectedPage] = useState('homepage_hero');
+  const [content, setContent] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    loadContent();
+  }, [selectedPage]);
+
+  const loadContent = async () => {
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/content/${selectedPage}`);
+      const data = await response.json();
+      setContent(data.data || {});
+    } catch (error) {
+      console.error('Error loading content:', error);
+    }
+  };
+
+  const handleSave = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/admin/content/${selectedPage}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(content)
+      });
+      
+      if (response.ok) {
+        alert('Content saved successfully!');
+      }
+    } catch (error) {
+      alert('Error saving content');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const updateField = (field, value) => {
+    setContent({...content, [field]: value});
+  };
+
+  const contentSections = {
+    'homepage_hero': { name: 'Homepage - Hero Section', fields: ['headline', 'subheadline', 'cta_text'] },
+    'homepage_features': { name: 'Homepage - Features', fields: ['feature1_title', 'feature1_desc', 'feature2_title', 'feature2_desc', 'feature3_title', 'feature3_desc'] },
+    'about_mission': { name: 'About - Mission', fields: ['title', 'content', 'founder_name', 'founder_title'] },
+    'contact_info': { name: 'Contact Information', fields: ['phone', 'email', 'address', 'hours'] },
+    'footer_text': { name: 'Footer', fields: ['copyright', 'tagline'] }
+  };
+
+  return (
+    <div className="space-y-6">
+      <Card>
+        <CardContent className="p-6">
+          <h2 className="text-xl font-bold mb-4" style={{ color: '#6f1d1b' }}>Edit Page Content</h2>
+          
+          <div className="space-y-6">
+            <div>
+              <Label>Select Page Section</Label>
+              <select 
+                className="w-full p-2 border rounded mt-1"
+                value={selectedPage}
+                onChange={(e) => setSelectedPage(e.target.value)}
+              >
+                {Object.entries(contentSections).map(([key, section]) => (
+                  <option key={key} value={key}>{section.name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="space-y-4 border-t pt-6">
+              {contentSections[selectedPage]?.fields.map((field) => (
+                <div key={field}>
+                  <Label className="capitalize">{field.replace(/_/g, ' ')}</Label>
+                  {field.includes('desc') || field.includes('content') ? (
+                    <Textarea
+                      value={content[field] || ''}
+                      onChange={(e) => updateField(field, e.target.value)}
+                      rows={4}
+                      className="mt-1"
+                    />
+                  ) : (
+                    <Input
+                      value={content[field] || ''}
+                      onChange={(e) => updateField(field, e.target.value)}
+                      className="mt-1"
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-end">
+              <Button 
+                onClick={handleSave}
+                disabled={loading}
+                style={{ backgroundColor: '#6f1d1b' }}
+                className="text-white"
+              >
+                {loading ? 'Saving...' : 'Save Changes'}
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardContent className="p-6">
+          <h3 className="font-semibold mb-3">Preview</h3>
+          <div className="bg-gray-50 p-4 rounded border">
+            <pre className="text-sm whitespace-pre-wrap">{JSON.stringify(content, null, 2)}</pre>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
 const AdminDashboard = () => {
   const [podcasts, setPodcasts] = useState([]);
   const [files, setFiles] = useState([]);
