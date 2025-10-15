@@ -78,15 +78,36 @@ const PodcastPage = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold mb-4" style={{ color: '#6f1d1b' }}>Latest Episodes</h2>
-              <p className="text-gray-600 text-lg">
-                Listen to our podcast episodes on Spotify
-              </p>
+              <EditableText
+                as="h2"
+                section="podcast_labels"
+                field="page_title"
+                className="text-3xl font-bold mb-4"
+                style={{ color: '#6f1d1b' }}
+              >
+                {podcastLabels.page_title}
+              </EditableText>
+              <EditableText
+                as="p"
+                section="podcast_labels"
+                field="page_subtitle"
+                className="text-gray-600 text-lg"
+              >
+                {podcastLabels.page_subtitle}
+              </EditableText>
             </div>
             
             {/* Episode 1 */}
             <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-3" style={{ color: '#6f1d1b' }}>Latest Episode</h3>
+              <EditableText
+                as="h3"
+                section="podcast_labels"
+                field="episode1_label"
+                className="text-xl font-semibold mb-3"
+                style={{ color: '#6f1d1b' }}
+              >
+                {podcastLabels.episode1_label}
+              </EditableText>
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <iframe 
                   style={{ borderRadius: '12px' }}
