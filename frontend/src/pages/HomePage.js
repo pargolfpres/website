@@ -58,13 +58,26 @@ const HomePage = () => {
                 </span>
               </div>
               
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight" style={{ color: '#6f1d1b' }} data-testid="hero-heading">
+              <EditableText
+                as="h1"
+                section="homepage_hero"
+                field="headline"
+                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+                style={{ color: '#6f1d1b' }}
+                data-testid="hero-heading"
+              >
                 {heroContent.headline}
-              </h1>
+              </EditableText>
               
-              <p className="text-lg text-gray-600 leading-relaxed" data-testid="hero-subheading">
+              <EditableText
+                as="p"
+                section="homepage_hero"
+                field="subheadline"
+                className="text-lg text-gray-600 leading-relaxed"
+                data-testid="hero-subheading"
+              >
                 {heroContent.subheadline}
-              </p>
+              </EditableText>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link to="/signup">
