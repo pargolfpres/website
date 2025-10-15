@@ -125,7 +125,15 @@ const PodcastPage = () => {
 
             {/* Episode 2 */}
             <div className="mb-8">
-              <h3 className="text-xl font-semibold mb-3" style={{ color: '#6f1d1b' }}>Previous Episode</h3>
+              <EditableText
+                as="h3"
+                section="podcast_labels"
+                field="episode2_label"
+                className="text-xl font-semibold mb-3"
+                style={{ color: '#6f1d1b' }}
+              >
+                {podcastLabels.episode2_label}
+              </EditableText>
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <iframe 
                   style={{ borderRadius: '12px' }}
