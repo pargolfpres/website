@@ -13,6 +13,12 @@ const PodcastPage = () => {
   const [filteredEpisodes, setFilteredEpisodes] = useState([]);
   const [seasonFilter, setSeasonFilter] = useState('all');
   const [loading, setLoading] = useState(true);
+  const [podcastLabels, setPodcastLabels] = useState({
+    page_title: 'Latest Episodes',
+    page_subtitle: 'Listen to our podcast episodes on Spotify',
+    episode1_label: 'Latest Episode',
+    episode2_label: 'Previous Episode'
+  });
 
   useEffect(() => {
     axios.get(`${API_URL}/podcast/episodes`)
