@@ -682,9 +682,49 @@ async def startup_check_db():
         
         # Auto-fix placeholder images in production
         await fix_placeholder_images()
+        
+        # Auto-sync podcast episodes to match preview
+        await sync_podcast_episodes()
     except Exception as e:
         logger.error(f"Database connection failed: {str(e)}")
         logger.warning("App starting without database connection - retry will happen on first request")
+
+async def sync_podcast_episodes():
+    """Ensure podcast episodes match the correct Spotify episodes"""
+    try:
+        # Delete all existing podcast episodes
+        await db.podcast_episodes.delete_many({})
+        
+        # Insert the correct 2 Spotify episodes
+        correct_episodes = [
+            {
+                "id": str(uuid.uuid4()),
+                "title": "Latest Episode - TKR Coaching Podcast",
+                "description": "Listen to our latest episode on Spotify for real strategies, real results, and real conversations with top-producing agents.",
+                "audio_url": "https://open.spotify.com/episode/06cL7lL5z9235PgbiyoXN0",
+                "duration": "45:00",
+                "season": 1,
+                "episode": 1,
+                "thumbnail": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=400&fit=crop",
+                "published_at": datetime.now(timezone.utc).isoformat()
+            },
+            {
+                "id": str(uuid.uuid4()),
+                "title": "Previous Episode - TKR Coaching Podcast",
+                "description": "Catch up on our previous episode featuring insights and strategies for real estate success.",
+                "audio_url": "https://open.spotify.com/episode/0wVNnRnLdRhtZ1mX3znpeg",
+                "duration": "42:00",
+                "season": 1,
+                "episode": 2,
+                "thumbnail": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?w=400&h=400&fit=crop",
+                "published_at": (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+            }
+        ]
+        
+        await db.podcast_episodes.insert_many(correct_episodes)
+        logger.info(f"Synced {len(correct_episodes)} podcast episodes")
+    except Exception as e:
+        logger.error(f"Error syncing podcast episodes: {str(e)}")
 
 async def fix_placeholder_images():
     """Replace any placeholder images with real images"""
