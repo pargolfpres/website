@@ -488,6 +488,117 @@ async def submit_contact_form(form: ContactForm):
         logging.error(f"Error submitting contact form: {str(e)}")
         raise HTTPException(status_code=500, detail="Failed to submit contact form")
 
+# ==================== Admin Routes ====================
+
+@api_router.post("/admin/login")
+async def admin_login(login_data: AdminLogin):
+    """Admin login endpoint"""
+    admin_email = os.environ.get('ADMIN_EMAIL', 'admin@toddkroberson.com')
+    admin_password = os.environ.get('ADMIN_PASSWORD', 'admin123')  # Default password
+    
+    if login_data.email != admin_email:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    
+    # For simplicity, using plain text password comparison
+    # In production, use hashed passwords
+    if login_data.password != admin_password:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    
+    # Create admin token
+    token = create_jwt_token("admin", admin_email)
+    
+    return {
+        "token": token,
+        "email": admin_email,
+        "role": "admin"
+    }
+
+@api_router.post("/admin/upload")
+async def upload_file(file: UploadFile = File(...), folder: str = Form("general")):
+    """Upload file to S3"""
+    try:
+        # Generate unique filename
+        file_extension = os.path.splitext(file.filename)[1]
+        unique_filename = f"{folder}/{uuid.uuid4()}{file_extension}"
+        
+        # Upload to S3
+        s3_client.upload_fileobj(
+            file.file,
+            S3_BUCKET,
+            unique_filename,
+            ExtraArgs={'ACL': 'public-read'}
+        )
+        
+        # Generate public URL
+        file_url = f"https://{S3_BUCKET}.s3.{os.environ.get('AWS_REGION')}.amazonaws.com/{unique_filename}"
+        
+        # Store file metadata in database
+        file_record = {
+            "id": str(uuid.uuid4()),
+            "filename": file.filename,
+            "s3_key": unique_filename,
+            "url": file_url,
+            "folder": folder,
+            "uploaded_at": datetime.now(timezone.utc).isoformat()
+        }
+        await db.uploaded_files.insert_one(file_record)
+        
+        return {
+            "success": True,
+            "url": file_url,
+            "filename": file.filename
+        }
+    except ClientError as e:
+        logging.error(f"S3 upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to upload file: {str(e)}")
+    except Exception as e:
+        logging.error(f"Upload error: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to upload file")
+
+@api_router.get("/admin/files")
+async def get_uploaded_files(folder: Optional[str] = None):
+    """Get list of uploaded files"""
+    query = {"folder": folder} if folder else {}
+    files = await db.uploaded_files.find(query).to_list(length=100)
+    return [{"id": f["id"], "filename": f["filename"], "url": f["url"], "folder": f.get("folder", "general"), "uploaded_at": f["uploaded_at"]} for f in files]
+
+@api_router.post("/admin/podcast/update")
+async def update_podcast_episodes(episodes: List[PodcastEpisodeUpdate]):
+    """Update podcast episodes"""
+    try:
+        # Clear existing episodes
+        await db.podcast_episodes.delete_many({})
+        
+        # Add new episodes
+        new_episodes = []
+        for idx, ep in enumerate(episodes):
+            episode_data = {
+                "id": str(uuid.uuid4()),
+                "title": ep.title,
+                "description": ep.description,
+                "audio_url": ep.spotify_url,
+                "duration": ep.duration,
+                "season": 1,
+                "episode": idx + 1,
+                "thumbnail": "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?w=400&h=400&fit=crop",
+                "published_at": (datetime.now(timezone.utc) - timedelta(days=idx*7)).isoformat()
+            }
+            new_episodes.append(episode_data)
+        
+        if new_episodes:
+            await db.podcast_episodes.insert_many(new_episodes)
+        
+        return {"success": True, "message": f"Updated {len(new_episodes)} episodes"}
+    except Exception as e:
+        logging.error(f"Error updating podcasts: {str(e)}")
+        raise HTTPException(status_code=500, detail="Failed to update podcast episodes")
+
+@api_router.get("/admin/podcast/list")
+async def get_podcast_episodes_admin():
+    """Get all podcast episodes for admin"""
+    episodes = await db.podcast_episodes.find().to_list(length=100)
+    return [{"id": ep["id"], "title": ep["title"], "audio_url": ep.get("audio_url", ""), "description": ep.get("description", ""), "duration": ep.get("duration", "")} for ep in episodes]
+
 # ==================== Root Route ====================
 
 @api_router.get("/")
