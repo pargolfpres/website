@@ -12,8 +12,22 @@ const HomePage = () => {
   const [stats, setStats] = useState(null);
   const [podcasts, setPodcasts] = useState([]);
   const [communityPosts, setCommunityPosts] = useState([]);
+  const [heroContent, setHeroContent] = useState({
+    headline: 'Transform Your Real Estate Career From Your Pocket',
+    subheadline: 'Expert-led courses, coaching, and community designed for ambitious real estate professionals',
+    cta_text: 'Download Now & Start Learning'
+  });
 
   useEffect(() => {
+    // Fetch hero content
+    axios.get(`${API_URL}/content/homepage_hero`)
+      .then(res => {
+        if (res.data.data && Object.keys(res.data.data).length > 0) {
+          setHeroContent(res.data.data);
+        }
+      })
+      .catch(err => console.error('Error fetching hero content:', err));
+
     // Fetch stats
     axios.get(`${API_URL}/admin/analytics/content`)
       .then(res => setStats(res.data))
