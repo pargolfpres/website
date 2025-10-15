@@ -292,12 +292,7 @@ const AdminDashboard = () => {
 
           {/* Content Editor */}
           <TabsContent value="content" className="space-y-6">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-xl font-bold mb-4" style={{ color: '#6f1d1b' }}>Edit Page Content</h2>
-                <p className="text-gray-600">Coming soon: Edit About and Contact page content directly from here.</p>
-              </CardContent>
-            </Card>
+            <ContentEditor />
           </TabsContent>
         </Tabs>
       </div>
