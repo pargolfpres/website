@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, Link, useNavigate } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Edit } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useEditMode } from '@/contexts/EditModeContext';
 
 const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const { isEditMode, isAdmin, toggleEditMode } = useEditMode();
 
   useEffect(() => {
     const handleScroll = () => {
